@@ -12,6 +12,7 @@ foreach T of local types {
         recode instrument (. = 2) if "`t'" == "cso_data"
         recode instrument (. = 3) if "`t'" == "director_data"
     do "$wd/varlabels.do"
+    do "$wd/varnormalization.do"
     do "$wd/vallabels.do"
     save "$wd/`t'.dta", replace
 }

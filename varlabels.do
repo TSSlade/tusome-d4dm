@@ -1,3 +1,5 @@
+disp as error "Entering variable labels .do file"
+
 if instrument == 1 {
     label var county "County"
     label var zone "Zone/Cluster"
