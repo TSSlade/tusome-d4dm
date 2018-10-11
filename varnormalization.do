@@ -23,8 +23,8 @@ if instrument[1] == 1 {
             //replace `item' = ".s" if `item' == "[pls record details]"
             replace `item' = ".v" if `item' == "N/A; has never been visited by CSO"
             replace `item' = ".f" if `item' == "N/A; CSO has not provided feedback"
-            replace `item' = ".n" if `item' == `"N/A; CSO has not used a tablet during feedback"'
-            replace `item' = ".s" if inlist(`item', `"N/A; Answer to 26 was "No" or "N/A""')
+            replace `item' = ".n" if inlist(`item', `"N/A; CSO has not used a tablet during feedback"', `"N/A; CSO has not used a tablet during observation"', `"N/A; CSO has not assessed pupils"')
+            replace `item' = ".s" if inlist(`item', `"N/A; Answer to 26 was "No" or "N/A""', `"N/A; answer to 9 was "No""', `"N/A; Answer to 19 was "No""', `"N/A; Answer to 31 was "No""')
             // replace `item' = "." if `item' == ""
         }
         destring `item', replace
@@ -53,7 +53,9 @@ if instrument[1] == 2 {
         if _rc == 0 {
             replace `item' = "0" if upper(`item') == "NO"
             replace `item' = "1" if upper(`item') == "YES"
-            replace `item' = "2" if upper(`item') == "DON'T KNOW" & "`item'"=="cdir_conseq_yn"
+            replace `item' = "2" if upper(`item') == "DON'T KNOW" & inlist("`item'", "cdir_conseq_yn", "cdir_comm_reres")
+            replace `item' = ".m" if `item' == "pls make selection"
+            replace `item' = ".n" if `item' == "N/A"
         }
         destring `item', replace
     }
@@ -74,6 +76,7 @@ if instrument[1] == 2 {
     replace freq_refer_tang_plan = "4" if freq_refer_tang_plan == "At least 1x per term"
     replace freq_refer_tang_plan = ".n" if freq_refer_tang_plan == `"N/A; Answer to 16 was "No""'
     replace freq_refer_tang_plan = "88" if freq_refer_tang_plan == "Other"
+    replace freq_refer_tang_plan = ".m" if freq_refer_tang_plan == "pls make selection"
     destring freq_refer_tang_plan, replace
 
     destring db_chk_prevterm_freq, replace
@@ -92,6 +95,7 @@ if instrument[1] == 3 {
             replace `item' = "0" if upper(`item') == "NO"
             replace `item' = "1" if upper(`item') == "YES"
             replace `item' = ".l" if upper(`item') == "N/A; RECEIVES A LINK TO THE TUSOME DASHBOARD"
+            replace `item' = ".m" if upper(`item') == "PLS MAKE SELECTION"
         }
         destring `item', replace
     }
@@ -101,6 +105,7 @@ if instrument[1] == 3 {
     replace designation = "31" if designation == "MOE-CD"
     replace designation = "32" if designation == "TSC-CD"
     replace designation = "88" if designation == "Other"
+    replace designation = ".m" if designation == "pls make selection"
     destring designation, replace
 
     replace desig_other_det = "N/A" if inlist(desig_other_det, "n/a", "")
