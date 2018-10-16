@@ -60,17 +60,47 @@
 #     window_display: true
 # ---
 
-# %% {"ExecuteTime": {"start_time": "2018-10-09T12:16:21.567130Z", "end_time": "2018-10-09T12:16:31.976628Z"}}
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:20:05.617458Z", "end_time": "2018-10-12T13:20:07.330457Z"}}
 import pandas as pd
 import altair as alt
+alt.renderers.enable('notebook')
 
-# %% {"ExecuteTime": {"start_time": "2018-10-09T12:27:27.444443Z", "end_time": "2018-10-09T12:27:27.448945Z"}}
-# Just comment out the ones that're not you
-user = "tim"
-# user = "lucy"
-# user="carmen"
-if user=="tim":
-    src = "C:/Dropbox/Kenya Tusome/other/Google.org Grant Research/data"
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:34:37.753362Z", "end_time": "2018-10-12T13:34:38.491367Z"}}
+tchrs = pd.read_stata("teacher_data.dta",convert_categoricals=True)
+csos = pd.read_stata("cso_data.dta",convert_categoricals=True)
+dirs = pd.read_stata("director_data.dta",convert_categoricals=True)
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:34:39.150869Z", "end_time": "2018-10-12T13:34:39.156361Z"}}
+print(f"The Teacher dataset contains {tchrs.shape[0]} records\nThe CSO dataset contains {csos.shape[0]} records\nThe Director dataset contains {dirs.shape[0]} records")
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:38:15.784758Z", "end_time": "2018-10-12T13:38:15.821761Z"}}
+dirs.pivot_table(index="designation")
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:36:19.306334Z", "end_time": "2018-10-12T13:36:19.406830Z"}}
+?pd.pivot
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:32:40.336427Z", "end_time": "2018-10-12T13:32:40.344930Z"}}
+chdir_links = alt.Chart(dirs).mark_bar().encode(
+x = "designation",
+y = "get_link_yn:O")
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T13:32:42.006069Z", "end_time": "2018-10-12T13:32:42.112060Z"}}
+chdir_links
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T08:05:19.437595Z", "end_time": "2018-10-12T08:05:19.514605Z"}}
+tchrs.head()
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T08:38:15.873337Z", "end_time": "2018-10-12T08:38:16.116390Z"}}
+import altair as alt
+from vega_datasets import data
+
+iris = data.iris()
+
+alt.Chart(iris).mark_point().encode(
+    x='petalLength',
+    y='petalWidth',
+    color='species'
+)
 
 # %% {"ExecuteTime": {"start_time": "2018-10-09T12:31:21.547815Z", "end_time": "2018-10-09T12:31:21.643847Z"}}
 instruments = {"cso":"CSO_Data", "tchr": "Teacher_Data", "dir":"Director_Data"}
@@ -84,6 +114,12 @@ instruments.keys()
 
 # %% {"ExecuteTime": {"start_time": "2018-10-09T12:28:02.205561Z", "end_time": "2018-10-09T12:28:02.282560Z"}}
 cso_data.head()
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T08:22:10.887478Z", "end_time": "2018-10-12T08:22:10.891486Z"}}
+pd.set_option('display.max_colwidth', -1)
+
+# %% {"ExecuteTime": {"start_time": "2018-10-12T08:22:14.252196Z", "end_time": "2018-10-12T08:22:14.270194Z"}}
+csos[csos.tang_nonobs_nowhynot!=""].tang_nonobs_nowhynot
 
 # %%
 
