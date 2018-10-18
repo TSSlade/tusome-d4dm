@@ -34,7 +34,7 @@ if instrument[1] == 1 {
     replace vis_before_freq = "3" if vis_before_freq == "3x"
     replace vis_before_freq = "4" if vis_before_freq == "4x"
     replace vis_before_freq = "55" if vis_before_freq == "More than 4 x"
-    replace vis_before_freq = ".b" if vis_before_freq == ""
+    replace vis_before_freq = ".b" if inlist(vis_before_freq, "", "pls make selection")
     replace vis_before_freq = "0" if vis_before_freq == "N/A; CSO has never visited"
     replace vis_before_freq = ".u" if vis_before_freq == "Don't Know"
     destring vis_before_freq, replace
@@ -56,13 +56,17 @@ if instrument[1] == 2 {
             replace `item' = "2" if upper(`item') == "DON'T KNOW" & inlist("`item'", "cdir_conseq_yn", "cdir_comm_reres")
             replace `item' = ".m" if `item' == "pls make selection"
             replace `item' = ".n" if `item' == "N/A"
+            replace `item' = ".s" if inlist(`item', `"N/A; Answer to 11 was "No""') & inlist("`item'", "tang_fdbk_notuseful")
         }
         destring `item', replace
     }
     replace designation = "11" if designation == "CSO"
     replace designation = "13" if designation == "Instructional Coach"
+    replace designation = "" if designation == "pls make selection"
+    replace designation = "11" if filename == "Jonah Kisioh - CSO Tool Form 2018-10-12-GASAMBI kASSIM1.docx"
     destring designation, replace
 
+    replace recd_tab_month = "" if inlist(recd_tab_month, " ", "pls make selection")
     destring recd_tab_yr recd_tab_month, replace
 
     unab usage_rankings: app_freq*
@@ -96,6 +100,7 @@ if instrument[1] == 3 {
             replace `item' = "1" if upper(`item') == "YES"
             replace `item' = ".l" if upper(`item') == "N/A; RECEIVES A LINK TO THE TUSOME DASHBOARD"
             replace `item' = ".m" if upper(`item') == "PLS MAKE SELECTION"
+            replace `item' = ".n" if upper(`item') == "N/A"
         }
         destring `item', replace
     }
