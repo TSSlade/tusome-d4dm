@@ -32,7 +32,7 @@ We will also include a sample of comments the teachers provided when responding 
 |----------------------------------------------------------|----------------------|
 | + the CSO gave feedback on the lesson the teacher taught | `cso_gave_fdbk_yn`   |
 | + the CSO used the tablet during the feedback session    | `cso_usetab_fdbk_yn` |
-| + they could remember specific feedback the CSO provided | `cso_fdbk_yn`        |
+| + they could remember specific feedback the CSO provided | `cso_fdbk_remember`  |
 
 ...with samples of the specific feedback that teachers were able to recall from that last visit (`cso_fdbk_det`)
 
