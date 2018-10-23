@@ -112,7 +112,7 @@ if instrument == 2 {
 
 if instrument == 3 {
     label var county "County"
-    label var zone "Zone"
+    label var subcounty "Subcounty"
     label var designation "Interviewee role"
     label var desig_other_det "Role other than listed"
     label var intro_db_yr "Year introduced to Dashboard"
