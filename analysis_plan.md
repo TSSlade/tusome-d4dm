@@ -40,14 +40,14 @@ We will also include a sample of comments the teachers provided when responding 
 10. Generate a stacked bar chart of the proportion of teachers reporting a CSO had shown them each of the following things on the tablet:
 
 ```
-cso_show_tips
-cso_show_fluency
-cso_show_video
-cso_show_lsnd
-cso_show_other
+cso_shw_tips
+cso_shw_fluency
+cso_shw_video
+cso_shw_lsnd
+cso_shw_other
 ```
 
-We will also include a sample of comments the teachers provided when responding 'other' (`cso_show_other_det`).
+We will also include a sample of comments the teachers provided when responding 'other' (`cso_shw_other_det`).
 
 11. Calculate the proportion of teachers reporting that the CSO makes reference to feedback provided on an earlier visit when conducting a subsequent visit. (`cso_ref_prev_fdk_yn`)
 12. Calculate the proportion of teachers saying that the CSO's feedback has helped improve their teaching skills with respect to literacy. (`cso_fdbk_better_tus`)
