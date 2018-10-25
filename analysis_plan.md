@@ -60,6 +60,8 @@ We will also include a sample of comments the teachers provided when responding 
 19. For the subset of teachers who observed while the CSO assessed pupils' reading fluency with the tablet (`cso_pres_ass_tab`), calculate the proportion of teachers reporting that the students find it distracting when the CSO uses the tablet-based assessment (`cso_pup_dist_ass`). If it is significant, sample the reasons the teachers give for why this is the case (`cso_pup_why`)
 20. Calculate the proportion of teachers reporting they assess their pupils' fluency levels (`tchr_ass_pup_yn`) and what tools they use to do so (`tchr_ass_pup_tools`)
 21. Generate a stacked bar chart of the proportion of teachers saying they have access to a mobile phone (`tch_mob_phone`), that it is an Android (`tch_has_android`), and that they would use a tool on their mobile phone to do sample assessments with their students (`tch_wants_assess`).
+=======
+Teachers are 
 
 ## Curriculum Support Officers (CSOs)
 
