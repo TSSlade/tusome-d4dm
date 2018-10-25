@@ -13115,7 +13115,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13135,7 +13135,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tchrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s2">&quot;teacher_data.dta&quot;</span><span class="p">,</span> <span class="n">convert_categoricals</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -13150,7 +13150,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;The Teacher dataset contains </span><span class="si">{tchrs.shape[0]}</span><span class="s2"> records</span><span class="se">\n</span><span class="s2">The CSO dataset contains </span><span class="si">{csos.shape[0]}</span><span class="s2"> records</span><span class="se">\n</span><span class="s2">The Director dataset contains </span><span class="si">{dirs.shape[0]}</span><span class="s2"> records&quot;</span><span class="p">)</span>
@@ -13206,10 +13206,11 @@ The Director dataset contains 242 records
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tchr_ct</span> <span class="o">=</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Counting teacher records</span>
+<span class="n">tchr_ct</span> <span class="o">=</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13235,10 +13236,11 @@ The Director dataset contains 242 records
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">never</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">((</span><span class="n">tchr_ct</span> <span class="o">-</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">/</span><span class="n">tchr_ct</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Counting teachers never visited</span>
+<span class="n">never</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">((</span><span class="n">tchr_ct</span> <span class="o">-</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">/</span><span class="n">tchr_ct</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13264,93 +13266,34 @@ The Director dataset contains 242 records
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before_freq</span> <span class="o">=</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before_freq</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">55</span><span class="p">:</span> <span class="s2">&quot;&gt;4x&quot;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating CSO visit counts</span>
+<span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before_freq</span> <span class="o">=</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before_freq</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">55</span><span class="p">:</span> <span class="s2">&quot;&gt;4x&quot;</span><span class="p">})</span>
 <span class="n">viscount_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before_freq</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;prevterm_vis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">viscount_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">viscount_df</span><span class="o">.</span><span class="n">vis_before_freq</span> <span class="o">/</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">more_than_monthly</span> <span class="o">=</span> <span class="n">viscount_df</span><span class="p">[</span><span class="n">viscount_df</span><span class="o">.</span><span class="n">prevterm_vis</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;&gt;4x&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">pct</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">viscount_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# of times CSO visited in preceding term&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">csovisct_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">viscount_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# of times CSO visited in preceding term&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;prevterm_vis:O&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CSO visits last term&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;vis_before_freq:Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# Teachers&quot;</span><span class="p">),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;pct&quot;</span><span class="p">)</span>
+
+<span class="n">csovisct_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/csovisct_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="9b49dc2f-a8fb-46f0-ad03-089d7948e3bf"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#9b49dc2f-a8fb-46f0-ad03-089d7948e3bf');
-var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-2268ae746a22e261199a51936c9861c3"}, "mark": "bar", "encoding": {"tooltip": {"type": "quantitative", "field": "pct"}, "x": {"type": "quantitative", "field": "vis_before_freq", "title": "# Teachers"}, "y": {"type": "ordinal", "field": "prevterm_vis", "title": "CSO visits last term"}}, "title": "# of times CSO visited in preceding term", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-2268ae746a22e261199a51936c9861c3": [{"prevterm_vis": 0.0, "vis_before_freq": 90, "pct": 11.73}, {"prevterm_vis": 1.0, "vis_before_freq": 155, "pct": 20.21}, {"prevterm_vis": 2.0, "vis_before_freq": 173, "pct": 22.56}, {"prevterm_vis": 3.0, "vis_before_freq": 170, "pct": 22.16}, {"prevterm_vis": 4.0, "vis_before_freq": 83, "pct": 10.82}, {"prevterm_vis": ">4x", "vis_before_freq": 136, "pct": 17.73}]}};
-var opt = {};
-var type = "vega-lite";
-var id = "682639a0-fc8b-48c7-b2e3-74cd340b124e";
-
-var output_area = this;
-
-require(["nbextensions/jupyter-vega/index"], function(vega) {
-  var target = document.createElement("div");
-  target.id = id;
-  target.className = "vega-embed";
-
-  var style = document.createElement("style");
-  style.textContent = [
-    ".vega-embed .error p {",
-    "  color: firebrick;",
-    "  font-size: 14px;",
-    "}",
-  ].join("\\n");
-
-  // element is a jQuery wrapped DOM element inside the output area
-  // see http://ipython.readthedocs.io/en/stable/api/generated/\
-  // IPython.display.html#IPython.display.Javascript.__init__
-  element[0].appendChild(target);
-  element[0].appendChild(style);
-
-  vega.render("#" + id, spec, type, opt, output_area);
-}, function (err) {
-  if (err.requireType !== "scripterror") {
-    throw(err);
-  }
-});
-
-</script>
 </div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[6]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre></pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/csovis_ch.png" alt="title"></p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13370,10 +13313,11 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">visact_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;activities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Assessed pupils&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating table of CSOs&#39; activities during visits</span>
+<span class="n">visact_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;activities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Assessed pupils&quot;</span><span class="p">,</span>
                                                    <span class="s2">&quot;Talked to HT&quot;</span><span class="p">,</span>
                                                    <span class="s2">&quot;Provided feedback on lesson&quot;</span><span class="p">,</span>
                                                    <span class="s2">&quot;Had general talk&quot;</span><span class="p">,</span>
@@ -13397,7 +13341,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -13469,92 +13413,33 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">visact_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CSO activities during previous visit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the graph of CSOs&#39; activities during the previous visit</span>
+<span class="n">csoprevvis_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">visact_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CSO activities during previous visit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
 <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;activities:O&quot;</span><span class="p">,</span> 
       <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Activities named&quot;</span><span class="p">,</span>
       <span class="n">sort</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;ascending&quot;</span><span class="p">)),</span>
 <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;pct:Q&quot;</span><span class="p">,</span>
       <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f teachers responding&quot;</span><span class="p">),</span>
 <span class="n">tooltip</span> <span class="o">=</span> <span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">)</span>
+
+<span class="n">csoprevvis_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/csoprevvis_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="a1e74fe5-81d1-409f-97a2-d6676ed78fcb"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#a1e74fe5-81d1-409f-97a2-d6676ed78fcb');
-var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-36b520553dd65d19a5bcb665a2aaf9e0"}, "mark": "bar", "encoding": {"tooltip": {"type": "quantitative", "field": "tchrs_reporting"}, "x": {"type": "quantitative", "field": "pct", "title": "% of teachers responding"}, "y": {"type": "ordinal", "field": "activities", "sort": {"op": "values", "field": "tchrs_reporting", "order": "ascending"}, "title": "Activities named"}}, "title": "CSO activities during previous visit", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-36b520553dd65d19a5bcb665a2aaf9e0": [{"activities": "Assessed pupils", "tchrs_reporting": 688, "pct": 83.84}, {"activities": "Talked to HT", "tchrs_reporting": 516, "pct": 62.88}, {"activities": "Provided feedback on lesson", "tchrs_reporting": 734, "pct": 89.44}, {"activities": "Had general talk", "tchrs_reporting": 364, "pct": 44.36}, {"activities": "Other", "tchrs_reporting": 127, "pct": 15.48}]}};
-var opt = {};
-var type = "vega-lite";
-var id = "62279681-bfce-46fb-bdbc-e698eb392ef0";
-
-var output_area = this;
-
-require(["nbextensions/jupyter-vega/index"], function(vega) {
-  var target = document.createElement("div");
-  target.id = id;
-  target.className = "vega-embed";
-
-  var style = document.createElement("style");
-  style.textContent = [
-    ".vega-embed .error p {",
-    "  color: firebrick;",
-    "  font-size: 14px;",
-    "}",
-  ].join("\\n");
-
-  // element is a jQuery wrapped DOM element inside the output area
-  // see http://ipython.readthedocs.io/en/stable/api/generated/\
-  // IPython.display.html#IPython.display.Javascript.__init__
-  element[0].appendChild(target);
-  element[0].appendChild(style);
-
-  vega.render("#" + id, spec, type, opt, output_area);
-}, function (err) {
-  if (err.requireType !== "scripterror") {
-    throw(err);
-  }
-});
-
-</script>
 </div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre></pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/csoprevvis_ch.png" alt="title"></p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13569,10 +13454,11 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_other_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_other_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">vis_act_other_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating a list of the &#39;other&#39; activities CSOs did when visiting</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_other_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_other_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">vis_act_other_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13589,26 +13475,26 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>42     I was observed as i taught and invited the head teacher to observe me with him                                                                                                 
-755    To improve on resources in class.                                                                                                                                              
-613    She talked to the head teacher,Guided us on scheming and lesson planning,assessed learners,Observed lessons and encouraged us to to make teaching learning material.           
-649    she takes notes                                                                                                                                                                
-385    Sometimes she talks to other teachers and ask them to embrace Tusome                                                                                                           
-814    The CSO observes as I teach,checks pupils work if it has been marked as well as checks the teaching aids                                                                       
-136    The CSO retired in June and before the CSO went on retirement, he never visited. We have not been assigned a new CSO. So we are still waiting.                                 
-353    checks on my documents, pupil&#39;s enrollment and lesson                                                                                                                          
-726    assesed children,spoke to the head teacher and gave me feedback                                                                                                                
-732    The CSO checks the fluency level of learners. After the lesson observation the CSO hands me a filled lesson observation form                                                   
-668    Talked to the entire staff.                                                                                                                                                    
-598    Met all teachers in the school and informed them about the new curriculum and advised them on how to support Tusome teachers, use of teaching aids and lesson plan preparations
-711    spoke to my head teacher,assesed my pupils and gave me feedback on my lesson                                                                                                   
-147    Talk to the whole staff.                                                                                                                                                       
-383    How to talk to parents about their children performance and home work.                                                                                                         
-819    observed the ratio of books if it was 1:1                                                                                                                                      
-584    I was given the strength and the weakness of my lesson and he guided me to improve                                                                                             
-659    She assembled all lower Primary teachers and advised us on how to teach successful lessons.                                                                                    
-91     She sits in class and observes the lesson and also looks at the books at the end of the lesson.                                                                                
-500    To improve on resources in class.                                                                                                                                              
+<pre>85     He sits at the back of the classroom to observe my lessons and thereafter supports                                                                                          
+766    He sits back, watch as I teach, check pupils books, lesson plans, teaching notes and schemes of work.                                                                       
+648    guidance on preparation of teacher documentation                                                                                                                            
+10     She observed the way I was teaching while sitted at the back of the class                                                                                                   
+768    Checked on book ratio                                                                                                                                                       
+514    He talks to me on my performance in teaching Tusome lessons                                                                                                                 
+635    To improve on resources in class.                                                                                                                                           
+516    He observes my lessons and corrects mistakes where appropriate                                                                                                              
+65     She checked if Tusome books are covered well                                                                                                                                
+736    He asked for the lesson i was teaching ,he sat at the back of the class and observed my lesson as I taught. After the lesson he assessed three learners and gave me feedback
+237    Took class enrollement by gender                                                                                                                                            
+401    He spoke to headteacher,observed my class,assessed pupils and gave me feed back on my class                                                                                 
+640    assessed children and gave me feedback on my lesson                                                                                                                         
+129    She observes the lesson                                                                                                                                                     
+346    Talks to other staff memebers.                                                                                                                                              
+730    The CSO observed my lessons (English,Kiswahili &amp; Maths and gives me feedback on areas of improvement                                                                        
+186    If during the lesson he finds there is something I need correction he corrects me.                                                                                          
+717    Talked to the entire tusome teacher.                                                                                                                                        
+467    He always notifys me through the HT that he will come to support us on a given day.                                                                                         
+630    She checks on the books                                                                                                                                                     
 Name: vis_act_other_det, dtype: object
 </pre>
 </div>
@@ -13636,23 +13522,11 @@ Name: vis_act_other_det, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tabs_n_pencils</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usetab_yn</span><span class="p">,</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usepcl_yn</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># tabs_n_pencils.rename(columns=[&quot;No pen&quot;, &quot;Uses pen&quot;])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the table about usage of tablets and pencils</span>
+<span class="n">tabs_n_pencils</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usetab_yn</span><span class="p">,</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usepcl_yn</span><span class="p">)</span>
 <span class="n">tabs_n_pencils</span> <span class="o">=</span> <span class="n">tabs_n_pencils</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;Uses tablet&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;Uses pen and paper&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
 <span class="n">tabs_n_pencils</span> <span class="o">=</span> <span class="n">tabs_n_pencils</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
 <span class="n">tabs_n_pencils</span>
@@ -13668,7 +13542,7 @@ Name: vis_act_other_det, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[56]:</div>
 
 
 
@@ -13749,10 +13623,11 @@ Name: vis_act_other_det, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feedback</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;CSO gave feedback&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_gave_fdbk_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating table of CSO use of tablets for feedback</span>
+<span class="n">feedback</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;CSO gave feedback&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_gave_fdbk_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
             <span class="s2">&quot;CSO used a tablet&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usetab_fdbk_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
             <span class="s2">&quot;Tchr remembers feedback&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_remember</span><span class="o">.</span><span class="n">sum</span><span class="p">()}</span>
 <span class="n">fdbk_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">feedback</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ct&quot;</span><span class="p">])</span>
@@ -13771,7 +13646,7 @@ Name: vis_act_other_det, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[57]:</div>
 
 
 
@@ -13831,10 +13706,11 @@ Name: vis_act_other_det, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sample of details regarding the details of feedback CSOs provided</span>
+<span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13847,32 +13723,32 @@ Name: vis_act_other_det, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[58]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>603    He advised me to teach more than 1 tusome lesson so as to catch up with the rest in the zone                                                                                                                                                                                                                                                                                                                   
-79     He told me not to write words with slashes for sounds during blending. i was also advised to infuse CBC in the lessons.                                                                                                                                                                                                                                                                                        
-250    He told on the time i took for my lesson and told me not to use any other book apart from the Tusome books                                                                                                                                                                                                                                                                                                     
-356    I was reminded to follow the steps of teaching vocabulary                                                                                                                                                                                                                                                                                                                                                      
-559    SOME REMARKS THAT SOME LEARNERS COULD NOT READ, AND THAT I SHOULD FOLLOW THE TEACHERS GUIDE                                                                                                                                                                                                                                                                                                                    
-155    he told me about fluency levels of my class some pupils were not able to read fluently                                                                                                                                                                                                                                                                                                                         
-400    incoprate aspects of CBC and use formative feedback                                                                                                                                                                                                                                                                                                                                                            
-808    CSO helped me to articulate the challenging sounds and also discussed about my lessn duration                                                                                                                                                                                                                                                                                                                  
-105    I was told to infuse CBC IN THE LESSON                                                                                                                                                                                                                                                                                                                                                                         
-213    One was about time i took in teaching that lesson and the other one was about how the learners read the assessment                                                                                                                                                                                                                                                                                             
-68     He showed me how to use the teachers guide and discussed about the CBC                                                                                                                                                                                                                                                                                                                                         
-92     He told me to remember to check prediction after reading the story and put more emphasis on reading since learners were below                                                                                                                                                                                                                                                                                  
-672    She said Oral blending was well done through the use of Direct Instruction. She also commended me for the good mastery of the content. There was excellent classroom participation                                                                                                                                                                                                                             
-127    She insisted mostly on the use of teachers&#39; guides to teach the lesson.                                                                                                                                                                                                                                                                                                                                        
-18     The last time he was here he mentioned that my lesson was too short, Perky pace                                                                                                                                                                                                                                                                                                                                
-408    He told me about the sounds                                                                                                                                                                                                                                                                                                                                                                                    
-615    Last time she observed me she advised that I plan well so that I fully infuse CBC and I had used one school tablet to show &#34;Aina ya ndege&#34; but the CSO advised that I should have used more tablets preferably in small groups in order for the children to see and aviod time wasting.                                                                                                                        
-501    The CSO told me to infuse the new curriculum when teaching Tusome both in Kiswahili and English.                                                                                                                                                                                                                                                                                                               
-241    The CSO told me in a lesson i should always make sure there a group activity. He encouraged me to use a lot of learning materials. He also said in class, some pupils are getting kiswahili more than English , he said i should teach English in English and not in Kiswali but i find that a big challenge. The locality here is of pastrolists who don&#39;t even attend preunit so even kiswahili is difficult.
-739    Reading fluency of the learners,how to guide learners look for answers in the passage                                                                                                                                                                                                                                                                                                                          
+<pre>314    guided me on infusing the Competency Based curriculum principles - communication, collaboaration, values etc, advised me to support learners to develop a faster reading speed                                                                                          
+613    I was reminded to check pupils predictions after reaing the story.                                                                                                                                                                                                      
+509    adviced to ensure that all learners are involved in the lesson                                                                                                                                                                                                          
+463    Learners fluency rate he said was ok for as per the Tusome bench mark for Grade 1.                                                                                                                                                                                      
+686    create time and help slow learners in word blending                                                                                                                                                                                                                     
+403    Use simple words to make sentences when teaching vocabulary activity                                                                                                                                                                                                    
+155    he told me about fluency levels of my class some pupils were not able to read fluently                                                                                                                                                                                  
+288    use of DIM                                                                                                                                                                                                                                                              
+213    One was about time i took in teaching that lesson and the other one was about how the learners read the assessment                                                                                                                                                      
+518    He guided me on how to invovle the enitre class in the lesson instead of concentrating on a few learners to answer questions.                                                                                                                                           
+371    he reminded me to give learners enough time to demonistrate the meaning of words by use of sentences                                                                                                                                                                    
+124    I was informed that my learners were reading in a low torn hence should encoureage them to read loudly or speak loudly                                                                                                                                                  
+588    The CSO said when it comes to vocubullary, i tool longer than the stipulated time especially the grammar part. He said its important that some times i give individuals time to read since those who are slow may not be able to read when it&#39;s the whole calss reading.
+603    He advised me to teach more than 1 tusome lesson so as to catch up with the rest in the zone                                                                                                                                                                            
+68     He showed me how to use the teachers guide and discussed about the CBC                                                                                                                                                                                                  
+810    Craete remedial lessons to help slow learners                                                                                                                                                                                                                           
+186    He told me am able to follow the Tusome steps of I do, We do, You do but in some areas am too fast. He also told me that a majority of my learners are able to read.                                                                                                    
+401    for me to orally blend rather write sounds on the board                                                                                                                                                                                                                 
+623    Mostly I forget to do prediction. The CSO reminded me to always remember to do it where applicatioable. She also advised on need to control responses in mother Tongue by learners during.the lesson                                                                    
+107    I was informed and guided on strategies to use to improve on the reading fluency levels in my learners                                                                                                                                                                  
 Name: cso_fdbk_det, dtype: object</pre>
 </div>
 
@@ -13908,10 +13784,11 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">now</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Converting the tablet years, months into a duration</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">csos</span><span class="p">[</span><span class="s2">&quot;tab_usage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">({</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">recd_tab_yr</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">recd_tab_month</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}))</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
 </pre></div>
 
@@ -13930,103 +13807,31 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tab_usage</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">tab_usage</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">tab_usage</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
-<span class="c1"># tab_usage</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tab_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribution of CSO tablet usage, months&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the df and chart for tablet usage</span>
+<span class="n">tab_usage</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">tab_usage</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">tab_usage</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">tabdur_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tab_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribution of CSO tablet usage, months&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;tab_usage:Q&quot;</span><span class="p">,</span> 
           <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# Months has had a tablet&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;count()&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# of CSOs&quot;</span><span class="p">))</span>
+
+<span class="n">tabdur_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;img/tabdur_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="96905caf-3a36-43b6-b658-35455350b097"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#96905caf-3a36-43b6-b658-35455350b097');
-var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-3b244c189a682ad7e2da9b5f2e9abe5c"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": {"step": 1}, "field": "tab_usage", "title": "# Months has had a tablet"}, "y": {"type": "quantitative", "aggregate": "count", "title": "# of CSOs"}}, "title": "Distribution of CSO tablet usage, months", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-3b244c189a682ad7e2da9b5f2e9abe5c": [{"tab_usage": 44.6}, {"tab_usage": 46.666666666666664}, {"tab_usage": 5.1}, {"tab_usage": 26.366666666666667}, {"tab_usage": 18.266666666666666}, {"tab_usage": 2.033333333333333}, {"tab_usage": 26.366666666666667}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 32.43333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 20.233333333333334}, {"tab_usage": 17.266666666666666}, {"tab_usage": 18.266666666666666}, {"tab_usage": 15.233333333333333}, {"tab_usage": 14.2}, {"tab_usage": 38.56666666666667}, {"tab_usage": 42.63333333333333}, {"tab_usage": 2.033333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 46.666666666666664}, {"tab_usage": 6.1}, {"tab_usage": 42.63333333333333}, {"tab_usage": 26.366666666666667}, {"tab_usage": 21.266666666666666}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 30.433333333333334}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 26.366666666666667}, {"tab_usage": 25.333333333333332}, {"tab_usage": 19.3}, {"tab_usage": 25.333333333333332}, {"tab_usage": 45.63333333333333}, {"tab_usage": 19.3}, {"tab_usage": 50.733333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 45.63333333333333}, {"tab_usage": 21.266666666666666}, {"tab_usage": 42.63333333333333}, {"tab_usage": 25.333333333333332}, {"tab_usage": 17.266666666666666}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 25.333333333333332}, {"tab_usage": 19.3}, {"tab_usage": 30.433333333333334}, {"tab_usage": 16.233333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 36.53333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 22.3}, {"tab_usage": 40.6}, {"tab_usage": 40.6}, {"tab_usage": 29.433333333333334}, {"tab_usage": 40.6}, {"tab_usage": 42.63333333333333}, {"tab_usage": 54.8}, {"tab_usage": 42.63333333333333}, {"tab_usage": 19.3}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 48.7}, {"tab_usage": 26.366666666666667}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 15.233333333333333}, {"tab_usage": 17.266666666666666}, {"tab_usage": 42.63333333333333}, {"tab_usage": 19.3}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 5.1}, {"tab_usage": 17.266666666666666}, {"tab_usage": 34.5}, {"tab_usage": 17.266666666666666}, {"tab_usage": 25.333333333333332}, {"tab_usage": 42.63333333333333}, {"tab_usage": 25.333333333333332}, {"tab_usage": 1.0}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 16.233333333333334}, {"tab_usage": 15.233333333333333}, {"tab_usage": 22.3}, {"tab_usage": 13.166666666666666}, {"tab_usage": 8.066666666666666}, {"tab_usage": 4.066666666666666}, {"tab_usage": 41.63333333333333}, {"tab_usage": 34.5}, {"tab_usage": 2.033333333333333}, {"tab_usage": 30.433333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 37.53333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 5.1}, {"tab_usage": 46.666666666666664}, {"tab_usage": 5.1}, {"tab_usage": 16.233333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 13.166666666666666}, {"tab_usage": 20.233333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 29.433333333333334}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 38.56666666666667}, {"tab_usage": 27.4}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 26.366666666666667}]}};
-var opt = {};
-var type = "vega-lite";
-var id = "10fe8477-e149-4195-98d5-d266bb56b56d";
-
-var output_area = this;
-
-require(["nbextensions/jupyter-vega/index"], function(vega) {
-  var target = document.createElement("div");
-  target.id = id;
-  target.className = "vega-embed";
-
-  var style = document.createElement("style");
-  style.textContent = [
-    ".vega-embed .error p {",
-    "  color: firebrick;",
-    "  font-size: 14px;",
-    "}",
-  ].join("\\n");
-
-  // element is a jQuery wrapped DOM element inside the output area
-  // see http://ipython.readthedocs.io/en/stable/api/generated/\
-  // IPython.display.html#IPython.display.Javascript.__init__
-  element[0].appendChild(target);
-  element[0].appendChild(style);
-
-  vega.render("#" + id, spec, type, opt, output_area);
-}, function (err) {
-  if (err.requireType !== "scripterror") {
-    throw(err);
-  }
-});
-
-</script>
 </div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[16]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre></pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/tabdur_ch.png" alt="title"></p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14054,10 +13859,11 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app_users</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tutor&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_tt_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the df of app usage</span>
+<span class="n">app_users</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tutor&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_tt_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
          <span class="s2">&quot;papaya&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_papaya_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
          <span class="s2">&quot;books&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_bks_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
          <span class="s2">&quot;videos&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_vids_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">()}</span>
@@ -14073,92 +13879,32 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">app_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Proportion of CSOs reporting tool usage&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">appuse_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">app_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Proportion of CSOs reporting tool usage&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;app:O&quot;</span><span class="p">,</span>
           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Application&quot;</span><span class="p">,</span>
           <span class="n">sort</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;pct&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;ascending&quot;</span><span class="p">),</span>
           <span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;pct:Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f CSOs reporting usage&quot;</span><span class="p">),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;pct&quot;</span><span class="p">)</span>
+
+<span class="n">appuse_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;img/appuse_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="747ccaf1-7271-4318-b763-2b8f7344e6ff"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#747ccaf1-7271-4318-b763-2b8f7344e6ff');
-var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-8c0dc4d2068fb66b0a5ab5b21bfe3f27"}, "mark": "bar", "encoding": {"tooltip": {"type": "quantitative", "field": "pct"}, "x": {"type": "quantitative", "field": "pct", "title": "% of CSOs reporting usage"}, "y": {"type": "ordinal", "field": "app", "sort": {"op": "values", "field": "pct", "order": "ascending"}, "title": "Application"}}, "title": "Proportion of CSOs reporting tool usage", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-8c0dc4d2068fb66b0a5ab5b21bfe3f27": [{"app": "tutor", "ct": 140, "pct": 92.10000000000001}, {"app": "papaya", "ct": 140, "pct": 92.10000000000001}, {"app": "books", "ct": 129, "pct": 84.89999999999999}, {"app": "videos", "ct": 124, "pct": 81.6}]}};
-var opt = {};
-var type = "vega-lite";
-var id = "37598ce8-8feb-4ff8-92d8-a49d3efdcdfb";
-
-var output_area = this;
-
-require(["nbextensions/jupyter-vega/index"], function(vega) {
-  var target = document.createElement("div");
-  target.id = id;
-  target.className = "vega-embed";
-
-  var style = document.createElement("style");
-  style.textContent = [
-    ".vega-embed .error p {",
-    "  color: firebrick;",
-    "  font-size: 14px;",
-    "}",
-  ].join("\\n");
-
-  // element is a jQuery wrapped DOM element inside the output area
-  // see http://ipython.readthedocs.io/en/stable/api/generated/\
-  // IPython.display.html#IPython.display.Javascript.__init__
-  element[0].appendChild(target);
-  element[0].appendChild(style);
-
-  vega.render("#" + id, spec, type, opt, output_area);
-}, function (err) {
-  if (err.requireType !== "scripterror") {
-    throw(err);
-  }
-});
-
-</script>
 </div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre></pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/appuse_ch.png" alt="title"></p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14179,10 +13925,11 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">ref_tang_fdbk</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculating proportion of CSOs who refer to Tangerine during feedback</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">ref_tang_fdbk</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14195,7 +13942,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -14229,10 +13976,11 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">refer_tang_nonobs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating proportion of CSOs who use Tangerine to plan their work</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">refer_tang_nonobs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14245,7 +13993,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[64]:</div>
 
 
 
@@ -14270,10 +14018,11 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating list of sampled statements re: why CSOs didn&#39;t use Tangerine for planning</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">tang_nonobs_nowhynot</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">tang_nonobs_nowhynot</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">tang_nonobs_nowhynot</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -14287,22 +14036,22 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[65]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>50    The problem is that i don&#39;t have enough time to check on it, there is a lot of work nowadays                             
-94    N/ A                                                                                                                     
-93    I normally use it for the observation and writing reports                                                                
-60    I use my work schedule to monitor my school visits                                                                       
-17    I do not know other useful features that can help me plan my work                                                        
-48    I have not been issued with a tablet                                                                                     
-87    I ussually don&#39;t have enough time for that despite knowing it&#39;s the right thing to do but i will improve from next time  
-61    attandeance data                                                                                                         
-96    Tangerine might capture GPS and you will be seen like a cheat and it&#39;s not good. I only use it while supporting teachers.
-58    There is no form or provision to enter work plans or any other planned                                                   
+<pre>101    I normally use it for the observation and writing reports                                                                                           
+87     I ussually don&#39;t have enough time for that despite knowing it&#39;s the right thing to do but i will improve from next time                             
+17     I do not know other useful features that can help me plan my work                                                                                   
+62     I am still learning how to use the various features of the tangerine. With time, I will be able to use it more efficiently.                         
+146    Since i am not supporting the teachers, i don&#39;t open the tangerine but i open pdf books                                                             
+144    I have not used any other form from the Tangerine.                                                                                                  
+93     I normally use it for the observation and writing reports                                                                                           
+29     i HAVE THE INFORMATION I NEED FOR PLANNING MY WORK                                                                                                  
+47     I don&#39;t think I have any reason because I have my own program. I only use it when I am going to school. We normally prepare our own program of work.
+21     Yes Tangerine has schools visited or not visted hence useful for programming and familiaration of the tool                                          
 Name: tang_nonobs_nowhynot, dtype: object</pre>
 </div>
 
@@ -14340,10 +14089,11 @@ Name: tang_nonobs_nowhynot, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tchk_freq</span> <span class="o">=</span> <span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ct&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the dataset of Tangerine checking behavior</span>
+<span class="n">tchk_freq</span> <span class="o">=</span> <span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ct&quot;</span><span class="p">)</span>
 <span class="n">tchk_freq</span> <span class="o">=</span> <span class="n">tchk_freq</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">tchk_freq</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tchk_freq</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Daily&quot;</span><span class="p">,</span> 
@@ -14368,89 +14118,30 @@ Name: tang_nonobs_nowhynot, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tchk_freq</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Tangerine app checking behavior&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating graph of Tangerine app checking behavior</span>
+<span class="n">tangchk_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tchk_freq</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Tangerine app checking behavior&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;ct:Q&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;frequency:O&quot;</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;sort_order:Q&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;ascending&quot;</span><span class="p">)),</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
+
+<span class="n">tangchk_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;img/tangchk_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> 
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-
-<div id="0fbb2af5-27ed-4b5d-873c-f6929a8e6348"></div>
-<div class="output_subarea output_javascript ">
-<script type="text/javascript">
-var element = $('#0fbb2af5-27ed-4b5d-873c-f6929a8e6348');
-var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-e0c8178a2859fbedfd43b9603c42779d"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "frequency"}, "x": {"type": "quantitative", "field": "ct"}, "y": {"type": "ordinal", "field": "frequency", "sort": {"op": "values", "field": "sort_order:Q", "order": "ascending"}}}, "title": "Tangerine app checking behavior", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-e0c8178a2859fbedfd43b9603c42779d": [{"frequency": "Daily", "ct": 23, "sort_order": 0}, {"frequency": "Weekly", "ct": 46, "sort_order": 1}, {"frequency": "Monthly", "ct": 19, "sort_order": 2}, {"frequency": "Termly", "ct": 4, "sort_order": 3}, {"frequency": 88.0, "ct": 1, "sort_order": 4}]}};
-var opt = {};
-var type = "vega-lite";
-var id = "f6e6d960-322f-480a-9857-9910bb906809";
-
-var output_area = this;
-
-require(["nbextensions/jupyter-vega/index"], function(vega) {
-  var target = document.createElement("div");
-  target.id = id;
-  target.className = "vega-embed";
-
-  var style = document.createElement("style");
-  style.textContent = [
-    ".vega-embed .error p {",
-    "  color: firebrick;",
-    "  font-size: 14px;",
-    "}",
-  ].join("\\n");
-
-  // element is a jQuery wrapped DOM element inside the output area
-  // see http://ipython.readthedocs.io/en/stable/api/generated/\
-  // IPython.display.html#IPython.display.Javascript.__init__
-  element[0].appendChild(target);
-  element[0].appendChild(style);
-
-  vega.render("#" + id, spec, type, opt, output_area);
-}, function (err) {
-  if (err.requireType !== "scripterror") {
-    throw(err);
-  }
-});
-
-</script>
 </div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre></pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/tangchk_ch.png" alt="title"></p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
