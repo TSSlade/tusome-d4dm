@@ -13171,8 +13171,8 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The Teacher dataset contains 828 records
-The CSO dataset contains 152 records
-The Director dataset contains 242 records
+The CSO dataset contains 153 records
+The Director dataset contains 247 records
 </pre>
 </div>
 </div>
@@ -13221,7 +13221,7 @@ The Director dataset contains 242 records
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Our dataset contains interviews with {{tchr_ct}} teachers.</p>
+<p>Our dataset contains interviews with 828 teachers.</p>
 
 </div>
 </div>
@@ -13251,7 +13251,7 @@ The Director dataset contains 242 records
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that {{np.round(never, decimals=2)}}% of teachers interviewed had never been previously visited by CSOs.</p>
+<p>We see that 7.37% of teachers interviewed had never been previously visited by CSOs.</p>
 
 </div>
 </div>
@@ -13278,7 +13278,6 @@ The Director dataset contains 242 records
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;prevterm_vis:O&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;CSO visits last term&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;vis_before_freq:Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# Teachers&quot;</span><span class="p">),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;pct&quot;</span><span class="p">)</span>
-
 <span class="n">csovisct_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../img/csovisct_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
@@ -13290,7 +13289,7 @@ The Director dataset contains 242 records
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../img/csovisct_ch.png" alt="title"></p>
+<p><img src="../img/csovisct_ch.png" alt="CSO Visits"></p>
 
 </div>
 </div>
@@ -13298,7 +13297,7 @@ The Director dataset contains 242 records
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that roughly {{int(viscount_df[viscount_df.prevterm_vis==0].pct[0])}}% of the respondents, while they'd been visited by a CSO in the past, had not been visited in the preceding term. However, {{int(viscount_df[viscount_df.prevterm_vis.isin([1, 2, 3])].pct.sum())}}% of the respondents were visited between once per term and once per month. Roughly {{int(more_than_monthly)}}% of the teachers were visited by their CSOs more frequently than monthly.</p>
+<p>We see that roughly 11% of the respondents, while they'd been visited by a CSO in the past, had not been visited in the preceding term. However, roughly 64% of the respondents were visited between once per term and once per month. Roughly 28% of the teachers were visited by their CSOs more frequently than monthly.</p>
 
 </div>
 </div>
@@ -13424,7 +13423,6 @@ The Director dataset contains 242 records
 <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;pct:Q&quot;</span><span class="p">,</span>
       <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f teachers responding&quot;</span><span class="p">),</span>
 <span class="n">tooltip</span> <span class="o">=</span> <span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">)</span>
-
 <span class="n">csoprevvis_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../img/csoprevvis_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
@@ -13436,7 +13434,7 @@ The Director dataset contains 242 records
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../img/csoprevvis_ch.png" alt="title"></p>
+<p><img src="../img/csoprevvis_ch.png" alt="CSOs&#39; Activities"></p>
 
 </div>
 </div>
@@ -13444,10 +13442,10 @@ The Director dataset contains 242 records
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nearly {{int(np.ceil(visact_df.pct.max()))}}% of teachers report that when the CSO last visited, s/he provided feedback on a lesson. Nearly the same quantity said that the CSO assessed pupils. Neither of these is surprising, as those activities are key features of a "reimbursable" or "valid" lesson observation. If anything, it is interesting that these numbers are not higher, given that we have excluded from our denominator those teachers who said they had never received a visit from the CSO.</p>
+<p>Nearly 90% of teachers report that when the CSO last visited, s/he provided feedback on a lesson. A fairly comparable proportion said that the CSO assessed pupils. Neither of these is surprising, as those activities are key features of a "reimbursable" or "valid" lesson observation. If anything, it is interesting that these numbers are not higher, given that we have excluded from our denominator those teachers who said they had never received a visit from the CSO.</p>
 <p>Of note is the relatively low proportion of teachers reporting the CSO had spoken with the HT. While Tusome encourages CSOs to speak with HTs as part of the standard protocol for visiting a school, it is not explicitly considered as a factor for reimbursement of transportation costs for visiting that school.</p>
 <p>That said, it is also possible that teachers may simply not be aware of activities taking place outside of their classroom. They and their classrooms would have been the objects of the lesson observation and fluency assessment; they may not have as much visibility into what happened before or after the CSO entered their classroom.</p>
-<p>A little over {{int(np.floor(visact_df[visact_df.activities=="Other"].pct))}}% of teachers reported the CSO conducted an activity that was not listed in the questionnaire. Below we have sampled 20 of the things that they reported which were not captured in the questionnaire.</p>
+<p>A little over 15% of teachers reported the CSO conducted an activity that was not listed in the questionnaire. Below we have sampled 20 of the things that they reported which were not captured in the questionnaire.</p>
 
 </div>
 </div>
@@ -13475,26 +13473,26 @@ The Director dataset contains 242 records
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>222    He checked my professional documents                                                                                                                                                  
-659    She assembled all lower Primary teachers and advised us on how to teach successful lessons.                                                                                           
-569    reminded me of steps of teaching vocubulary                                                                                                                                           
-717    Talked to the entire tusome teacher.                                                                                                                                                  
-732    The CSO checks the fluency level of learners. After the lesson observation the CSO hands me a filled lesson observation form                                                          
-453    he observed an oral lesson                                                                                                                                                            
-317    observed the lesson and after the lesson she called and gave me feedback                                                                                                              
-723    spoke to head teacher,assesed children and gave me feedback                                                                                                                           
-731    The CSO observed my lessons and gives recommendations regarding what went well and areas of improvement.                                                                              
-484    We provide SoW and lesson plans                                                                                                                                                       
-68     He inspected Tusome books                                                                                                                                                             
-319    Assed me in class and advised me.                                                                                                                                                     
-534    Looked at the schemes of work                                                                                                                                                         
-482    demonstrates on concepts that are not clear                                                                                                                                           
-400    spoke to head teacher,observed my class,asesed pupils and gave me feedback                                                                                                            
-524    He checked the professional documents                                                                                                                                                 
-51     I saw record notes on a book                                                                                                                                                          
-42     I was observed as i taught and invited the head teacher to observe me with him                                                                                                        
-532    He checked the pupils&#39; work; checked on my professional records;                                                                                                                      
-618    The CSO comes to support me,assess learners reading fluency,checks professional records and syllabus coverage,She advises on best teaching practices after observing lessons in class.
+<pre>214    He checked my lesson plans and schemes of work                                                                                                                                                                                                                                     
+667    Talked to the entire staff members                                                                                                                                                                                                                                                 
+730    The CSO observed my lessons (English,Kiswahili &amp; Maths and gives me feedback on areas of improvement                                                                                                                                                                               
+548    discussed on my lesson and way forward including a meeting with all the lower grade teachers plus head teachers to discuss way forward                                                                                                                                             
+183    During the lesson when you get lost, the CSO guides you.                                                                                                                                                                                                                           
+507    When the CSO come he takes GPS then he comes to class to observe the lesson,he randomly checks pupils excise books.,assess 3 pupils,Give me me time to comment on myLselsson strength and areas of improvement.He uses T/Guide to advise me on what went well and areas to improve.
+282    Check on book care, Check pupils books                                                                                                                                                                                                                                             
+725    spoke to head teacher,assesed children and gave me feedback                                                                                                                                                                                                                        
+766    He sits back, watch as I teach, check pupils books, lesson plans, teaching notes and schemes of work.                                                                                                                                                                              
+315    use tusome approach &#39;I/we/you do&#39; in teaching other learning areas, sensitize the teachers in upper primary to use Tusome approach in English and Kiswahili,                                                                                                                       
+51     I saw record notes on a book                                                                                                                                                                                                                                                       
+689    Checked the pupils books, and talked to the children. During the lesson she would partcipate by answring questions                                                                                                                                                                 
+128    She sits down and observes the way I am teaching the lesson                                                                                                                                                                                                                        
+630    She checks on the books                                                                                                                                                                                                                                                            
+819    observed the ratio of books if it was 1:1                                                                                                                                                                                                                                          
+676    talked about the arrival and departure time for teachers, recovering lessons not taught because of school activities like games                                                                                                                                                    
+22     Observed pupils books, observed the lesson,lesson plan                                                                                                                                                                                                                             
+365    She also talked to us at plenary where all the Tusome teachers were called to discuss some of the strengths and areas of improvements they encounter when teaching Tusome lessons                                                                                                  
+160    Talks to other staff memebers.                                                                                                                                                                                                                                                     
+592    He sits back and observes the lesson as I teach.                                                                                                                                                                                                                                   
 Name: vis_act_other_det, dtype: object
 </pre>
 </div>
@@ -13515,7 +13513,7 @@ Name: vis_act_other_det, dtype: object
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Roughly {{int(np.round(100 <em> (tchrs.cso_usetab_yn.sum()/tchr_ct), decimals=2))}}% of teachers reported that the CSOs use tablets during lesson observation; roughly {{int(np.round(100 </em> (tchrs.cso_usepcl_yn.sum()/tchr_ct), decimals=2))}}% of teachers reported the CSOs use pen and paper during the lesson observation.</p>
+<p>Roughly 90% of teachers reported that the CSOs use tablets during lesson observation; roughly 81% of teachers reported the CSOs use pen and paper during the lesson observation.</p>
 
 </div>
 </div>
@@ -13599,7 +13597,7 @@ Name: vis_act_other_det, dtype: object
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that the overwhelming majority of CSOs are using both tablets <em>and</em> pen-and-paper systems when observing the teachers' lesson. There have historically been some instruments/data that CSOs were tasked by TSC to complete that were not rendered in <em>Tangerine</em> format on the tablets; as of midway through Term 3 of the 2018 academic year, those instruments (mostly for the TSC's TPAD [Teacher Professional Appraisal and Development] project) are now in <em>Tangerine</em>. While the use of pen and paper does not appear to have come at the expense of using the tablets - indeed, it appears to be complementary, as nearly all CSOs are using both - Tusome should nonetheless follow up on these reports of CSOs' usage of pen and paper to understand the roots of the practice.</p>
+<p>We see that the overwhelming majority of CSOs are using both tablets <em>and</em> pen-and-paper systems when observing the teachers' lesson. There have historically been some instruments/data that CSOs were tasked by TSC to complete that were not rendered in <em>Tangerine</em> format on the tablets; as of midway through Term 3 of the 2018 academic year, those instruments (mostly for the TSC's TPAD [Teacher Performance Appraisal and Development] project) are now in <em>Tangerine</em>. While the use of pen and paper does not appear to have come at the expense of using the tablets - indeed, it appears to be complementary, as nearly all CSOs are using both - Tusome should nonetheless follow up on these reports of CSOs' usage of pen and paper to understand the roots of the practice.</p>
 
 </div>
 </div>
@@ -13608,7 +13606,7 @@ Name: vis_act_other_det, dtype: object
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="CSOs'-usage-of-the-tablets-to-assess-pupils'-performance">CSOs' usage of the tablets to assess pupils' performance<a class="anchor-link" href="#CSOs'-usage-of-the-tablets-to-assess-pupils'-performance">&#182;</a></h3><p>Tusome's coaching protocol requires CSOs to randomly select three children from the classroom at the end of the lesson to assess their reading fluency. The prompt the children are to read from is a laminated sheet of paper with a short passage printed on it; the CSOs are instructed to use the tablet to record the children's responses. The tablet is then able to calculate fluency rates and store those as data associated with that observation.</p>
-<p>Approximately {{int(np.round(100 * (tchrs.cso_usetab_pup_yn.sum()/tchr_ct), decimals=2))}}% of the teachers reported that CSOs use the tablets to assess children's reading fluency.</p>
+<p>Approximately 88% of the teachers reported that CSOs use the tablets to assess children's reading fluency.</p>
 
 </div>
 </div>
@@ -13616,7 +13614,7 @@ Name: vis_act_other_det, dtype: object
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Teachers'-experience-of-feedback,-and-CSOs'-use-of-tablets">Teachers' experience of feedback, and CSOs' use of tablets<a class="anchor-link" href="#Teachers'-experience-of-feedback,-and-CSOs'-use-of-tablets">&#182;</a></h3><p>Tusome asked teachers whether the CSO gave feedback on the lesson last time s/he paid a visit, whether s/he used the tablet to do so, and whether the teacher was able to recall specific feedback the CSO provided.</p>
+<h3 id="Teachers'-experience-of-feedback,-and-CSOs'-use-of-tablets-during-feedback">Teachers' experience of feedback, and CSOs' use of tablets during feedback<a class="anchor-link" href="#Teachers'-experience-of-feedback,-and-CSOs'-use-of-tablets-during-feedback">&#182;</a></h3><p>Tusome asked teachers whether the CSO gave feedback on the lesson last time s/he paid a visit, whether s/he used the tablet to do so, and whether the teacher was able to recall specific feedback the CSO provided.</p>
 
 </div>
 </div>
@@ -13628,7 +13626,7 @@ Name: vis_act_other_det, dtype: object
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating table of CSO use of tablets for feedback</span>
 <span class="n">feedback</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;CSO gave feedback&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_gave_fdbk_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
-            <span class="s2">&quot;CSO used a tablet&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usetab_fdbk_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+            <span class="s2">&quot;CSO used a tablet for feedback&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_usetab_fdbk_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
             <span class="s2">&quot;Tchr remembers feedback&quot;</span><span class="p">:</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_remember</span><span class="o">.</span><span class="n">sum</span><span class="p">()}</span>
 <span class="n">fdbk_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">feedback</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ct&quot;</span><span class="p">])</span>
 <span class="n">fdbk_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fdbk_df</span><span class="p">[</span><span class="s2">&quot;ct&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -13683,7 +13681,7 @@ Name: vis_act_other_det, dtype: object
     </tr>
     <tr>
       <th>1</th>
-      <td>CSO used a tablet</td>
+      <td>CSO used a tablet for feedback</td>
       <td>676.0</td>
       <td>81.6</td>
     </tr>
@@ -13704,13 +13702,21 @@ Name: vis_act_other_det, dtype: object
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below we have sampled 20 of the things that they reported which were not captured in the questionnaire.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sample of details regarding the details of feedback CSOs provided</span>
-<span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13723,33 +13729,143 @@ Name: vis_act_other_det, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>824    the CSO told me to reduce the number of words during vocabulary to help me maintain the right perky pace                                                                                                                                                                               
+361    she said the lesson was well introduced and advised to initiate group work activities,                                                                                                                                                                                                 
+381    he advised me to stick to the teachers guide, told me to support the learners who cant read, told me to develop an Individual Education program for the weak learners                                                                                                                  
+536    He told me about class control and some pupils were not mastering the sounds. I was to go and download the sounds to help the pupils to master them.                                                                                                                                   
+586    The CSO guided on time management and how to use perky pace in my lesson..                                                                                                                                                                                                             
+503    help pupils read fluently                                                                                                                                                                                                                                                              
+23     How to use the jedwali in Kiswahili, change the teaching of jedwali                                                                                                                                                                                                                    
+251    He guided me on how to infuse the CBC Competencies in Tusome and encouraged me to use of teaching and learning materials during vocabulary                                                                                                                                             
+550    The CSO guided on how to articulate sounds in English.                                                                                                                                                                                                                                 
+574    She told me to infuse tusome in the CBC by identifying the key competences, values and PCIs .                                                                                                                                                                                          
+615    Last time she observed me she advised that I plan well so that I fully infuse CBC and I had used one school tablet to show &#34;Aina ya ndege&#34; but the CSO advised that I should have used more tablets preferably in small groups in order for the children to see and aviod time wasting.
+141    I was guided on how to pronounce difficult sounds and how to go about picture walk                                                                                                                                                                                                     
+628    I advised me to note lesson conclusion, that clearly identifies activities taught in the lesson                                                                                                                                                                                        
+154    he told me about fluency levels of my class some pupils were not able to read fluently                                                                                                                                                                                                 
+715    N/A                                                                                                                                                                                                                                                                                    
+559    SOME REMARKS THAT SOME LEARNERS COULD NOT READ, AND THAT I SHOULD FOLLOW THE TEACHERS GUIDE                                                                                                                                                                                            
+429    N/A                                                                                                                                                                                                                                                                                    
+191    He advised me to make sure that i infuse CBC aspects while teaching Tusome. He also advised me that it is always good to use a projector.                                                                                                                                              
+544    She told me to encourage learners to use reading fingers to follow what they read.                                                                                                                                                                                                     
+790    Use of the steps and the given time when teaching vocabulary.                                                                                                                                                                                                                          
+Name: cso_fdbk_det, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The tablets come equipped with various aids that CSOs could use to help coach teachers. In addition to the contents of the auto-generated feedback, CSOs could use the <em>Papaya</em> application to model pronunciation of letter sounds, the videos demonstrating effective lesson delivery, etc. Of the teachers reporting CSOs provided feedback of some kind, 56% indicated that the CSO showed them something directly on the tablet.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating dataframe of feedback shown by CSOs to teachers</span>
+<span class="n">fdbk_shown_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Tips from feedback screen&quot;</span><span class="p">,</span>
+                                                   <span class="s2">&quot;Pupils&#39; reading fluency&quot;</span><span class="p">,</span>
+                                                   <span class="s2">&quot;Videos of lesson delivery&quot;</span><span class="p">,</span>
+                                                   <span class="s2">&quot;Letter sounds in Papaya&quot;</span><span class="p">,</span>
+                                                   <span class="s2">&quot;Other&quot;</span><span class="p">],</span>
+                                    <span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">:[</span>
+                                        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_shw_tips</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                                        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_shw_fluency</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                                        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_shw_video</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                                        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_shw_lsnd</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                                        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_shw_other</span><span class="o">.</span><span class="n">sum</span><span class="p">()]})</span>
+<span class="n">fdbk_shown_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+    <span class="n">fdbk_shown_df</span><span class="o">.</span><span class="n">tchrs_reporting</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">visact_df</span><span class="p">[</span><span class="n">visact_df</span><span class="o">.</span><span class="n">activities</span><span class="o">==</span><span class="s2">&quot;Provided feedback on lesson&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tchrs_reporting</span><span class="p">)),</span>
+    <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fdbk_shown_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>246    Consider slow learners by grouping them                                                                                                                                                          
-148    She gave feedback on learners reading benchmark and how to to improve on that.                                                                                                                   
-69     He talked about DIM ,formative feedback and asked me to keep lesson time at 30 minutes                                                                                                           
-501    The CSO told me to infuse the new curriculum when teaching Tusome both in Kiswahili and English.                                                                                                 
-801    He told me to adjust my lesson duration so that i can finish the lesson at the recommended                                                                                                       
-718    The CSO advised me on how to handle the slow learners by giving them remedial lessons. She told me to encourage learners to be free with me so that I assist themwell.                           
-503    help pupils read fluently                                                                                                                                                                        
-101    To improve on teaching vocabulary.                                                                                                                                                               
-525    He told me my learners have greaatly improve in reading.                                                                                                                                         
-33     He said that three quarters of the pupils are able to read fluently and advised that I carry out remedial teaching in the afternoon to help the weak learners,                                   
-719    The CSO guided me on how to use letter sounds to help those who are not able to read well.                                                                                                       
-257    The CSO shared with me the lesson duration, number of words read by learners selected by random selection                                                                                        
-697    the CSO asked me to teach lesson as planned and be guided by the teachers guide                                                                                                                  
-704    she advised me that i should spare time for the weak learners so that they can catch up with the rest and be discouraged                                                                         
-62     CSO told me the lesson was Ok, I was advised that pupils to read the story fluently                                                                                                              
-591    He said that i improbve on I do we do and you do and i think i have improved.                                                                                                                    
-301    He emphasised on helping learners reading through remedial teaching. He stressed on infusing the competence based curriuclum aspects in the Tusome lessons                                       
-5      he helped me know how to say some sounds                                                                                                                                                         
-480    When a child answers a wrong response to correct him or her immediately and she calls it formative feedback                                                                                      
-673    She said the lesson introduction was ok. I had mastered the content. Pupils actively participated in the lesson. She also said that their was improved in the reading as compared to the 1st term
-Name: cso_fdbk_det, dtype: object</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resources</th>
+      <th>tchrs_reporting</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tips from feedback screen</td>
+      <td>167</td>
+      <td>22.75</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pupils' reading fluency</td>
+      <td>260</td>
+      <td>35.42</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Videos of lesson delivery</td>
+      <td>128</td>
+      <td>17.44</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Letter sounds in Papaya</td>
+      <td>230</td>
+      <td>31.34</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Other</td>
+      <td>54</td>
+      <td>7.36</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13757,6 +13873,970 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating chart of tablet-based resources shown to teachers</span>
+<span class="n">tabres_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">fdbk_shown_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Tablet-based resources shown to Teachers by CSOs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;resources:O&quot;</span><span class="p">,</span> 
+      <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Resources named&quot;</span><span class="p">,</span>
+      <span class="n">sort</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;ascending&quot;</span><span class="p">)),</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;pct:Q&quot;</span><span class="p">,</span>
+      <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f teachers responding&quot;</span><span class="p">),</span>
+<span class="n">tooltip</span> <span class="o">=</span> <span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">)</span>
+<span class="n">tabres_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../img/tabres_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="../img/tabres_ch.png" alt="Tablet Resources Chart"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Overall, fewer than 50% of teachers indicated that CSOs showed them something on the tablet as part of the feedback session. Where the CSO showed something to the teacher, it was most frequently pupils' reading fluency (at 35%), with Papaya letter sounds the next most common (at 31%).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>N.B.</strong>: <span style="color:red"> Update cell w literate programming re: which activity is in the lead. (Abstract one level further.)</span></p>
+<p>Below we have sampled 20 of the things that they reported which were not captured in the questionnaire.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing sample of teachers&#39; feedback re: things CSOs showed them on the tablet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_shw_other_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_shw_other_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_shw_other_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>784    I was shown the time the lesson took                                                                                                
+782    I was shown the time I took                                                                                                         
+512    He doesn&#39;t show me directly but reads what I should have done eg steps of teaching vocabulary.He also asks me to refer to my T/Guide
+130    I was shown some steps i had skipped during the lesson                                                                              
+283    videos and pictures                                                                                                                 
+189    The CSO showed me the mistakes the pupils made during the assessment                                                                
+260    Lesson Duration, lesson plan                                                                                                        
+85     I was able to see what he recorded about the lesson when I was teaching.                                                            
+257    lesson duration, sometimes she does show me areas highlighted for improvement directly from the tablets                             
+781    The CSO showed me the feedback comments                                                                                             
+353    showed me why she needs my TSC no,                                                                                                  
+534    Has never been visited                                                                                                              
+618    I have not been shown anything directly on the tablet.                                                                              
+820    Mostly, I get the support from the head teacher who advises me on the areas i need to perform well                                  
+370    he showed me pupils assessment text                                                                                                 
+601    Some of the words that most learners didn&#39;t read correctly during pupils assessment                                                 
+640    fluecny level and played letter sound                                                                                               
+222    The CSO showed me the feedback on his tablet                                                                                        
+219    Pupils&#39; assessment and the time the lesson took                                                                                     
+705    words the learners were reading                                                                                                     
+Name: cso_shw_other_det, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CSOs'-use-of-feedback-visit-over-visit">CSOs' use of feedback visit-over-visit<a class="anchor-link" href="#CSOs'-use-of-feedback-visit-over-visit">&#182;</a></h3><p>Tusome's theory of change stipulates that smaller, more frequent, and more targeted coaching interactions will shift teacher behavior more effectively than larger-scale, episodic training events that cover a broad range of topics. This is the reason Tusome invests so heavily in supporting CSOs to provide coaching support to teachers in the span between large-scale training events.</p>
+<p>Teachers, like most people, will be more likely to alter their behavior if feedback is timely and consistent, and the teachers' response to it is monitored rather than assumed. In this survey, roughly 63% of teachers indicated that when CSOs visited the school and observed the teacher, they follow up on feedback from earlier visits.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>T.D.</strong>: <span style="color:red"> Update cells so definitions of variable `literate programming` inputs are visible.</span></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Teachers-self-reported-improvement-in-response-to-coaching">Teachers self-reported improvement in response to coaching<a class="anchor-link" href="#Teachers-self-reported-improvement-in-response-to-coaching">&#182;</a></h3><p>Effectively measuring the quality of instruction or lesson delivery is a very, very difficult task. (<strong>T.D.</strong>: <span style="color:red"> Provide citations, examples of various approaches.</span>)</p>
+<p>The current study was not able to directly assess the quality of teachers' lesson delivery, although Tusome is working on various other studies which attempt to do so. However, we asked teachers whether they felt the coaching received from CSOs had improved the quality of their teaching. We first posed the question in regard to the teaching of reading in Kiswahili and English, and then asked them whether the coaching had improved their teaching in other subjects as well.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating dataframe of teacher&#39;s self-reported improvement due to coaching</span>
+<span class="n">better_tchr_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Kiswahili &amp; English reading&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Other subjects&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;tchrs_reporting&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+                                <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_better_tus</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                          <span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+                                <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_better_nont</span><span class="o">.</span><span class="n">sum</span><span class="p">()]})</span>
+<span class="n">better_tchr_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+    <span class="n">better_tchr_df</span><span class="o">.</span><span class="n">tchrs_reporting</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_act_fdbk</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">())),</span>
+    <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">bttr_tus_pct</span> <span class="o">=</span> <span class="n">better_tchr_df</span><span class="p">[</span><span class="n">better_tchr_df</span><span class="o">.</span><span class="n">subject</span><span class="o">==</span><span class="s2">&quot;Kiswahili &amp; English reading&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span>
+<span class="n">bttr_nont_pct</span> <span class="o">=</span> <span class="n">better_tchr_df</span><span class="p">[</span><span class="n">better_tchr_df</span><span class="o">.</span><span class="n">subject</span><span class="o">==</span><span class="s2">&quot;Other subjects&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span>
+<span class="n">better_tchr_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>tchrs_reporting</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Kiswahili &amp; English reading</td>
+      <td>732.0</td>
+      <td>99.86</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Other subjects</td>
+      <td>706.0</td>
+      <td>96.32</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Encouragingly, 99.86% and 96.32% - effectively all - teachers have indicated that the feedback they receive from CSOs has enabled them to be better teachers.</p>
+<p>Below we have sampled 20 of the examples teachers gave for how their teaching has improved as a result of the feedback.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing sample of things teachers say they do better</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_better_det</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_better_det</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_better_det</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>802    N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+725    helped my lesson preparation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+61     Helped me in advancing my general lesson preparednee                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+306    I link other learning areas during my teaching                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+405    It helps me to apply the use of i do/we do/you do while teaching other subjects                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+638    The feedback he has given me has helped me not to forget steps in teaching, like last time i had forgoten to check prediction. I use the I do we do you do in teaching other subjects. I also use Tusome way of teaching vocabulary and i see the pupils are abke to comprehend. There are some grade 6 teachers who had pupils who could not comprehend , I advised him to teach them using Tusome way that the CSO has always given me feedback on. There are pupils in higher grade who cant read, we usually help them as well.
+600    He told us that the pupils should interact with each other i.e. discussing picture and this has helped not only in Tusome subjects but in other subjects like mathematics , environmetal studies and Hygiene and Nutrition where they discuss with their parents when they go home in the evening.                                                                                                                                                                                                                                 
+656    The number of words the learners could read had risen i.e. the fluency rate has improved                                                                                                                                                                                                                                                                                                                                                                                                                                           
+43     he told me to avoid using other languages to teach a language and prepare regularly before presenting                                                                                                                                                                                                                                                                                                                                                                                                                              
+642    I told me that pupils had improved the fuency levels compared to the last visit                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+697    fluency levels of my pupils was shared with me which I used to improve                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+747    Gramma and vocubulary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+157    It has helped me in the use of the teaching aids. I have been able to apply DIM even in other subjects.                                                                                                                                                                                                                                                                                                                                                                                                                            
+151    I always follow the CSO&#39;s feedback - im am now not doing the same mistakes i used to do during vocabulary teaching, I use tusome approach to teach new words found in other activity areas such as Hygiene &amp; Nutrition                                                                                                                                                                                                                                                                                                             
+674    Using the feedback on how to ensure every learner participates in the lesson has helped improve reading in my class. Learners are now motivated and have a lot of interest in reading                                                                                                                                                                                                                                                                                                                                              
+318    it helped in linking language activities to other activities like hygiene and nutrition                                                                                                                                                                                                                                                                                                                                                                                                                                            
+425    The CSO advised me not to frequently use English in a Kiswahili lesson.                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+440    I make sure that every step of my lesson is taught within the stipulated time and that I am able to teach other subjects in 30 mins                                                                                                                                                                                                                                                                                                                                                                                                
+521    I have been able to use the skills especially on letter sounds to pronounce words correctly even in other subjects.                                                                                                                                                                                                                                                                                                                                                                                                                
+49     I was advised to ensure that every pupil has own text book so that there is no sharing of textbooks                                                                                                                                                                                                                                                                                                                                                                                                                                
+Name: cso_fdbk_better_det, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CSOs'-discussion-of-pupil-fluency">CSOs' discussion of pupil fluency<a class="anchor-link" href="#CSOs'-discussion-of-pupil-fluency">&#182;</a></h3><p>The ultimate goal of Tusome is to improve reading outcomes in grades 1-3. Whether the project has been successful is determined by the pupils' reading skills (with an emphasis on <em>oral reading fluency</em>, or ORF, and reading comprehension) as demonstrated by their performance on an early grade reading assessment (EGRA).</p>
+<p>For a CSO's visit to be considered <em>complete</em> or <em>valid</em>, one of the criteria is that it include an assessment of the reading skills of three randomly-selected pupils. These pupils are then provided a stimulus that contains a brief reading passage of ~50-100 words. As they read aloud from the stimulus, the CSO uses the <em>Tangerine</em> application on the tablet to make note of any inaccurately read words. When the child has finished reading - or when 60 seconds elapses, whichever comes first - the assessment is complete. The child's fluency is then calculated using the formula</p>
+$$\frac{\text{# of correct words}}{\big(\frac{60 \ - \ \text{time remaining (s)}}{60}\big)} = \text{correct words per minute}$$<p>The <em>Tangerine</em> software calculates the average fluency in <em>cwpm</em> across all three pupils and reports it as part of the lesson feedback. The CSO is able - but not required - to bring up the pupils' fluency as part of their feedback session.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating dataframe CSOs&#39; discussions of fluency</span>
+<span class="n">fluency_disc_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;CSO discusses fluency in feedback session&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Teacher finds discussion of fluency useful&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;tchrs_responding&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_fdbk_discfluency</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_fdbk_flu_useful</span><span class="o">.</span><span class="n">sum</span><span class="p">()]})</span>
+
+<span class="n">fluency_disc_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> 
+                        <span class="n">fluency_disc_df</span><span class="o">.</span><span class="n">tchrs_responding</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">())),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">flu_cso_disc</span> <span class="o">=</span> <span class="n">fluency_disc_df</span><span class="p">[</span><span class="n">fluency_disc_df</span><span class="o">.</span><span class="n">response</span><span class="o">==</span><span class="s2">&quot;CSO discusses fluency in feedback session&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span>
+<span class="n">flu_disc_use</span> <span class="o">=</span> <span class="n">fluency_disc_df</span><span class="p">[</span><span class="n">fluency_disc_df</span><span class="o">.</span><span class="n">response</span><span class="o">==</span><span class="s2">&quot;Teacher finds discussion of fluency useful&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span>
+<span class="n">fluency_disc_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>response</th>
+      <th>tchrs_responding</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CSO discusses fluency in feedback session</td>
+      <td>706.0</td>
+      <td>92.05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Teacher finds discussion of fluency useful</td>
+      <td>710.0</td>
+      <td>92.57</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It appears the overwhelming majority of CSOs (92.05%) discuss the pupils' fluency with the teachers, and the teachers overwhelmingly (92.57%) find it a useful discussion. But how do teachers make use of that insight?</p>
+<p>Below we have sampled 20 of the examples teachers gave for what they do with knowledge of their pupils' fluency rates.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing a sample of teachers&#39; responses re: what they do with knowledge of fluency</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_flu_dowith</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_flu_dowith</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">cso_fdbk_flu_dowith</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>165    I use this information by putting learners in groups where slow learners benefit from first learners.                                                                                                                                         
+790    I improve depending on the comments.                                                                                                                                                                                                          
+334    Whatever he tells me i try to put it in practice in class                                                                                                                                                                                     
+6      It is useful beacause i know the true picture of the pupils and i can guage the level of my learners, for example if the pupils have problems with some word, I always do a remendial and also i check for more details about the learners.   
+370    helps me identify learners who are reading faster and those who are struggling to read                                                                                                                                                        
+138    I usually encourage the learners to practice difficult sounds and having remedila classes with them for improvement                                                                                                                           
+667    I use this information to improve on the learners reading levels and assist slow learners..                                                                                                                                                   
+602    Like the time he came, my pupils could not be able to read fluently, and this made me to work on it to see them improve                                                                                                                       
+465    It helps me know how to improve the learners reading abilities                                                                                                                                                                                
+480    if I am dragging behind I get to know and improve on their reading levels                                                                                                                                                                     
+589    The information helps me to teach the pupils who are slow and ther weak areas. I have now been using story books for more parctice.                                                                                                           
+425    I use this information to do remedial teaching for my slow learners.                                                                                                                                                                          
+184    He tells me if the children he assessed are reading well. I know that I have to keep making them read more so that they can improve. I write words on the board and ask the ones who can read to practice with those who are not reading well.
+711    share with my learners so as to improve their speed                                                                                                                                                                                           
+482    it is encouraging to know they can read                                                                                                                                                                                                       
+128    I have been able to regroup learners based on their ability to read. This has helped me give support to those who can not read because I give them more reading exercises.                                                                    
+249    It helps me understand the reading levels of my children and know where to put more effort                                                                                                                                                    
+176    It helps me to assist those that are not good in reading.                                                                                                                                                                                     
+717    I use this information to improve on the learners reading levels by giving them more materials to read..                                                                                                                                      
+615    Like if the pupils are not reading fluently I model using DIM.                                                                                                                                                                                
+Name: cso_fdbk_flu_dowith, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Disruption-caused-by-tablet-use">Disruption caused by tablet use<a class="anchor-link" href="#Disruption-caused-by-tablet-use">&#182;</a></h3><p>Pupils are easily distracted by the presence of unfamiliar adults in the classroom. However, if the adult sits quietly and unobtrusively in the rear of the classroom, the children rapidly become acclimated to the visitor's presence and are able to focus on the lesson.</p>
+<p>For many children in rural schools, however, tablet computers are an unfamiliar sight. Tusome was interested to know whether the CSOs' use of tablets to conduct the classroom observation or assess the pupils' fluency is perceived as disruptive.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating dataframe re: pupils&#39; distraction due to tablet use</span>
+<span class="n">tchr_dist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+    <span class="s2">&quot;case&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;CSO tablet use for observation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CSO tablet use for feedback&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;distracting&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_tab_distract_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_tab_fdbk_distrac</span><span class="o">.</span><span class="n">sum</span><span class="p">())]})</span>
+
+<span class="n">tchr_dist_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">tchr_dist_df</span><span class="o">.</span><span class="n">distracting</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+             <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">distracting_tab_obs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tchr_dist_df</span><span class="p">[</span><span class="n">tchr_dist_df</span><span class="o">.</span><span class="n">case</span><span class="o">==</span><span class="s2">&quot;CSO tablet use for observation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span><span class="p">)</span>
+<span class="n">distracting_tab_fdbk</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tchr_dist_df</span><span class="p">[</span><span class="n">tchr_dist_df</span><span class="o">.</span><span class="n">case</span><span class="o">==</span><span class="s2">&quot;CSO tablet use for feedback&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span><span class="p">)</span>
+
+<span class="n">tchr_dist_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>case</th>
+      <th>distracting</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CSO tablet use for observation</td>
+      <td>34</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CSO tablet use for feedback</td>
+      <td>16</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Reassuringly, very few teachers responded that they find it distracting when the CSO used a tablet during observation or during feedback (4.0% and 2.0%, respectively). It is worth considering why they found the tablet use distracting; because the numbers are so low, the lists below present all responses rather than just a sample.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing the reasons teachers think the tablets are distracting during observations</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_tab_distract_why</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_tab_distract_why</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">cso_tab_distract_why</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1      Pupils get attention of the tablet                                                                                                                                                          
+13     at times it is distracting when the CSO takes a photo using the tablet. This mostly affects the pupils. It was a challenge to me the first time she took the photos but now I am used to it.
+26     some learners look at the CSO at the back of the class as he he uses tablet hence distracting their attention                                                                               
+47     The curious one always keep on looking at the tablet instead of listening to me                                                                                                             
+89     Some of the children sitting next to the children get distraccted and stop looking and the board.They are are also not comfortable because they are not used to it.                         
+108    N/A s                                                                                                                                                                                       
+113    N/As                                                                                                                                                                                        
+132    Because the pupils keep on looking at the CSO and not the teacher when am teaching                                                                                                          
+148    N/A                                                                                                                                                                                         
+165    N/A                                                                                                                                                                                         
+224    Sometimes the learners try to look behind but i control them.                                                                                                                               
+231    sometimes the pupils are atrracted by the tablet as the CSO type                                                                                                                            
+264    N/A                                                                                                                                                                                         
+273    N/A                                                                                                                                                                                         
+278    Pupils are glued to the tablet.                                                                                                                                                             
+284    The kids concentrate on the tablet                                                                                                                                                          
+297    My pupils are eager to find out what the CSO is keying in the tablet                                                                                                                        
+298    My pupils would be interested to know more about the tablet and hence poor concentration during the lesson                                                                                  
+324    helps me put those with difficulties in reading under remedial                                                                                                                              
+341    N/A                                                                                                                                                                                         
+387    I m not used to it                                                                                                                                                                          
+596    Some pupils tend to concetrate at the CSO using the tablets behind the class while am teaching in class                                                                                     
+625    Sometimes my learners become interested in what the CSO is doing                                                                                                                            
+654    It creates curiosit to my learners                                                                                                                                                          
+676    sometimes the learners turn to see what the CSo is doing, for me its not                                                                                                                    
+728    The table diverts the learners attention and they will not concentrate on the lesson i am teaching                                                                                          
+774    This is because i have a class of 71 learners and the ones who were near the CSO, were being distracted by the CSO&#39;s tablet. Majority of the learners were OK                               
+Name: cso_tab_distract_why, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing the reasons teachers feel the tablet use during feedback is distracting</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_tab_diswhy</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_fdbk_tab_diswhy</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">cso_fdbk_tab_diswhy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>35     it arouses curiosity therefore disrupt concentration of the learners                                                                                                                                                                                                         
+50     I am distracted because i don&#39;t know what he will tell me                                                                                                                                                                                                                    
+176    Because i am not aware what he is doing with the tablet but if both are looking at it, i will not find it distracting                                                                                                                                                        
+206    My thinking is that the CSO is recording me and can be used in other places                                                                                                                                                                                                  
+241    When he is giving me feedback find it distracting that the CSO has to keep on looking on the tablet, I wonder what he is looking at or reading from the tablet. I prefer that he uses a a hardcopy of a real book not from his tablet since i cant see what he is looking at.
+423    N/A                                                                                                                                                                                                                                                                          
+522    No                                                                                                                                                                                                                                                                           
+749    N/A                                                                                                                                                                                                                                                                          
+Name: cso_fdbk_tab_diswhy, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While these results are encouraging, it may be that CSOs' tablet use is more distracting when it is the pupils themselves who are the object of the CSO's attention. We asked teachers whether they were present during the assessment of pupils' reading skills, and if so, whether it was their sense that pupils were distracted by the tablet use.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating dataframe re: pupils&#39; distraction due to tablet use during assessment</span>
+<span class="n">pupil_dist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Teacher observed the assessment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Pupils found the tablet distracting&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;tchrs_responding&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_pres_ass_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cso_pup_distract_ass</span><span class="o">.</span><span class="n">sum</span><span class="p">())]})</span>
+
+<span class="n">pupil_dist_df</span><span class="p">[</span><span class="s2">&quot;numerator&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">int</span><span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">vis_before</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+    <span class="nb">int</span><span class="p">(</span><span class="n">pupil_dist_df</span><span class="p">[</span><span class="n">pupil_dist_df</span><span class="o">.</span><span class="n">response</span><span class="o">==</span><span class="s2">&quot;Teacher observed the assessment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tchrs_responding</span><span class="p">)]</span>
+
+<span class="n">pupil_dist_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pupil_dist_df</span><span class="o">.</span><span class="n">tchrs_responding</span> <span class="o">/</span> <span class="n">pupil_dist_df</span><span class="o">.</span><span class="n">numerator</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">tchrs_obsd_assmt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pupil_dist_df</span><span class="p">[</span><span class="n">pupil_dist_df</span><span class="o">.</span><span class="n">response</span><span class="o">==</span><span class="s2">&quot;Teacher observed the assessment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span><span class="p">)</span>
+<span class="n">pupils_distracted</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pupil_dist_df</span><span class="p">[</span><span class="n">pupil_dist_df</span><span class="o">.</span><span class="n">response</span><span class="o">==</span><span class="s2">&quot;Pupils found the tablet distracting&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct</span><span class="p">)</span>
+
+<span class="n">pupil_dist_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>response</th>
+      <th>tchrs_responding</th>
+      <th>numerator</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Teacher observed the assessment</td>
+      <td>449</td>
+      <td>767</td>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pupils found the tablet distracting</td>
+      <td>98</td>
+      <td>449</td>
+      <td>22.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Roughly 59% of the teachers said they had observed the CSO's assessment of the pupils' reading skills. Of those, 22% thought the pupils found the tablet distracting. This may suggest a need for Tusome to provide additional training or orientation to CSOs on best practices in assessment administration.</p>
+<p>Below we sample 20 of the reasons teachers provided for why they thought pupils found tablet use distracting during the assessment.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing a sample of the reasons teachers think pupils find the tablet distracting</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">cso_pup_dist_why</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">cso_pup_dist_why</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">cso_pup_dist_why</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>594    I group the pupils and give them parts of stories or words to read to me. I then mark the words read correctly.                                                                             
+97     The CSO called me to encourage a pupil who was shy                                                                                                                                          
+424    The learners get excited about the tablet and forgets to read.                                                                                                                              
+175    Because when the learners are reading on the stimulus, they try to look at what the CSO is doing on the tablet and this distracts them.                                                     
+815    some pupils are more interested in the features on the tablet unlike focussing on intended reading assesment.                                                                               
+300    My learners got distracted by looking at the colour, the shape and the tablet itself because it is not a common phenomena                                                                   
+608    The pupils are distracted since they were reading directly from the tablet                                                                                                                  
+13     One of the boys got tensed when reading from the tablet since he is not used to reading from the tablet                                                                                     
+826    &#34;the rest of the learners who havent been selected for the reading activity keep on peeping at the back hoping to be called by the CSO to read.However the CSO sticks on the three pupils..&#34;
+768    When some of the leaners see the tablet they are attempted to touch it thereby distracting them during the activity                                                                         
+202    The learner is used to reading on paper, so when the CSO asked them to read on the tablet it was distracting because this is not what they are used to.                                     
+344    CSO used the tablet for assessment and not the reading stimulus.                                                                                                                            
+212    Because most of them tend not to concentrate on what they are reading and get themselves looking at the tablet.                                                                             
+229    The pupils read from the tablet.                                                                                                                                                            
+491    I think the font may not be clear enough for the learners to read thus affecting the assessment of their fluency levels                                                                     
+445    The pupils are not use to visitors coming with tablets in class even though we have our own tablets from the Digital Literacy programs. Some really fear.                                   
+27     The tablet interest them and want to click it too.                                                                                                                                          
+456    It was distracting to some slow learners who seemed to fear the tablet.                                                                                                                     
+82     Others were somehow afraid to read as they could look at the tablet but others were quite ok with reading.                                                                                  
+323    The gadget is new and they feel excited                                                                                                                                                     
+Name: cso_pup_dist_why, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Teachers'-ongoing-assessment-of-pupil-fluency">Teachers' ongoing assessment of pupil fluency<a class="anchor-link" href="#Teachers'-ongoing-assessment-of-pupil-fluency">&#182;</a></h3><p>Teachers are fully capable of assessing their pupils' reading fluency without recourse to a tablet. However, RTI has experimented with an Android-based pupil performance tracking tool that might be of use to teachers. Therefore we were interested to understand the extent to which teachers are already assessing pupils' fluency, what tools they are using for the task, whether they have access to phones on which such a tool could be deployed, and whether they would want to use it if so.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculating proportion of teachers who assess their pupils&#39; fluency</span>
+<span class="n">tchrs_assessing</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">tchr_ass_pup_flu_yn</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Roughly 91% of teachers we spoke to indicated they assess their pupils' fluency. When asked to specify what tools they use for the task, they specified the following.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Printing sample of tools teachers use to assess pupils&#39; fluency</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tchrs</span><span class="p">[(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">tchr_ass_pup_flu_yn</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tchrs</span><span class="o">.</span><span class="n">tchr_ass_pup_tools</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">tchr_ass_pup_tools</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">tchr_ass_pup_tools</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>458    PHONE                                                                                                   
+232    Pupils read the stories in the Tusome book. Reading exams                                               
+171    I set a small story and request learners to read, but not timed                                         
+804    I use the english textbook and give them any story and tell them to read one by one. Then I assess them.
+218    I give them a text to read and mark as they read individually.                                          
+474    I use an already set story to assess their reading levels as i time                                     
+341    I observe them as they read then rank them. I time them as they read using my watch.                    
+304    I check how learner are reading using story books                                                       
+528    give pupils story books and they read as i listen                                                       
+314    Gives small paragraghs to individual learners to read then compare the results                          
+589    I have the pupils read individually and i time them with my phone.                                      
+665    I normally use the text that we used to rceive from Tusome exams to assess the learners.                
+103    I use the pupil&#39;s text book and the Readers to find out if my children know how to read.                
+450    i used a stop watch and timed them as they read a specific passage                                      
+598    I normally give them a passage to read and time their reading speed                                     
+224    I use Tusome Story books and classroom wall clock                                                       
+525    I use the books. I tell the pupils to read specific texts.                                              
+159    I time them using my phoneas they read as I observe them.                                               
+568    I ask the pupils to read for me from a book, I don&#39;t time them.                                         
+203    I use the past reading examination papers where they read                                               
+Name: tchr_ass_pup_tools, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating dataframe of teachers&#39; access to phones and interest in a tool</span>
+<span class="n">tang_tool_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+    <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Teacher has a phone&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Phone is an Android&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Teacher would like a tool&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;tchrs_responding&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">tchrs</span><span class="o">.</span><span class="n">tch_mob_phone</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">tchrs</span><span class="o">.</span><span class="n">tch_has_android</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">tchrs</span><span class="o">.</span><span class="n">tch_wants_assess</span><span class="o">.</span><span class="n">sum</span><span class="p">()]})</span>
+
+<span class="n">tang_tool_df</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">tang_tool_df</span><span class="o">.</span><span class="n">tchrs_responding</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="n">tchrs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tang_tool_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>response</th>
+      <th>tchrs_responding</th>
+      <th>pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Teacher has a phone</td>
+      <td>814.0</td>
+      <td>98.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Phone is an Android</td>
+      <td>654.0</td>
+      <td>79.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Teacher would like a tool</td>
+      <td>813.0</td>
+      <td>98.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nearly all teachers interviewed indicated they have access to a mobile phone; nearly 4 out of 5 teachers indicated their phone is an Android. Nearly all teachers - even those who don't have an Android - said they would like to have access to a tool that would provide them sample assessments they could do with their pupils.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13784,11 +14864,10 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Converting the tablet years, months into a duration</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">now</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">csos</span><span class="p">[</span><span class="s2">&quot;tab_usage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">({</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">recd_tab_yr</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">recd_tab_month</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}))</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
 </pre></div>
 
@@ -13807,17 +14886,11 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the df and chart for tablet usage</span>
-<span class="n">tab_usage</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">tab_usage</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">tab_usage</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
-<span class="n">tabdur_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tab_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribution of CSO tablet usage, months&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;tab_usage:Q&quot;</span><span class="p">,</span> 
-          <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# Months has had a tablet&quot;</span><span class="p">),</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;count()&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# of CSOs&quot;</span><span class="p">))</span>
-
-<span class="n">tabdur_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../img/tabdur_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tab_usage</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">tab_usage</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">tab_usage</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
+<span class="c1"># tab_usage</span>
 </pre></div>
 
     </div>
@@ -13825,18 +14898,96 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../img/tabdur_ch.png" alt="title"></p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tab_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribution of CSO tablet usage, months&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;tab_usage:Q&quot;</span><span class="p">,</span> 
+          <span class="nb">bin</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">BinParams</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# Months has had a tablet&quot;</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;count()&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;# of CSOs&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+
+<div id="c90efaa1-61df-4708-b4ab-fbb13a6a616a"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#c90efaa1-61df-4708-b4ab-fbb13a6a616a');
+var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-3b244c189a682ad7e2da9b5f2e9abe5c"}, "mark": "bar", "encoding": {"x": {"type": "quantitative", "bin": {"step": 1}, "field": "tab_usage", "title": "# Months has had a tablet"}, "y": {"type": "quantitative", "aggregate": "count", "title": "# of CSOs"}}, "title": "Distribution of CSO tablet usage, months", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-3b244c189a682ad7e2da9b5f2e9abe5c": [{"tab_usage": 44.6}, {"tab_usage": 46.666666666666664}, {"tab_usage": 5.1}, {"tab_usage": 26.366666666666667}, {"tab_usage": 18.266666666666666}, {"tab_usage": 2.033333333333333}, {"tab_usage": 26.366666666666667}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 32.43333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 20.233333333333334}, {"tab_usage": 17.266666666666666}, {"tab_usage": 18.266666666666666}, {"tab_usage": 15.233333333333333}, {"tab_usage": 14.2}, {"tab_usage": 38.56666666666667}, {"tab_usage": 42.63333333333333}, {"tab_usage": 2.033333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 46.666666666666664}, {"tab_usage": 6.1}, {"tab_usage": 42.63333333333333}, {"tab_usage": 26.366666666666667}, {"tab_usage": 21.266666666666666}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 30.433333333333334}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 26.366666666666667}, {"tab_usage": 25.333333333333332}, {"tab_usage": 19.3}, {"tab_usage": 25.333333333333332}, {"tab_usage": 45.63333333333333}, {"tab_usage": 19.3}, {"tab_usage": 50.733333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 45.63333333333333}, {"tab_usage": 21.266666666666666}, {"tab_usage": 42.63333333333333}, {"tab_usage": 25.333333333333332}, {"tab_usage": 17.266666666666666}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 25.333333333333332}, {"tab_usage": 19.3}, {"tab_usage": 30.433333333333334}, {"tab_usage": 16.233333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 36.53333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 22.3}, {"tab_usage": 40.6}, {"tab_usage": 40.6}, {"tab_usage": 29.433333333333334}, {"tab_usage": 40.6}, {"tab_usage": 42.63333333333333}, {"tab_usage": 54.8}, {"tab_usage": 42.63333333333333}, {"tab_usage": 19.3}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 48.7}, {"tab_usage": 26.366666666666667}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 15.233333333333333}, {"tab_usage": 17.266666666666666}, {"tab_usage": 42.63333333333333}, {"tab_usage": 19.3}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 5.1}, {"tab_usage": 17.266666666666666}, {"tab_usage": 34.5}, {"tab_usage": 17.266666666666666}, {"tab_usage": 25.333333333333332}, {"tab_usage": 42.63333333333333}, {"tab_usage": 25.333333333333332}, {"tab_usage": 1.0}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 16.233333333333334}, {"tab_usage": 15.233333333333333}, {"tab_usage": 22.3}, {"tab_usage": 13.166666666666666}, {"tab_usage": 8.066666666666666}, {"tab_usage": 4.066666666666666}, {"tab_usage": 41.63333333333333}, {"tab_usage": 34.5}, {"tab_usage": 2.033333333333333}, {"tab_usage": 30.433333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 37.53333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 5.1}, {"tab_usage": 46.666666666666664}, {"tab_usage": 5.1}, {"tab_usage": 16.233333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 13.166666666666666}, {"tab_usage": 20.233333333333334}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 29.433333333333334}, {"tab_usage": 42.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 38.56666666666667}, {"tab_usage": 27.4}, {"tab_usage": 42.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 41.63333333333333}, {"tab_usage": 42.63333333333333}, {"tab_usage": 26.366666666666667}]}};
+var opt = {};
+var type = "vega-lite";
+var id = "b41b1555-bb3d-47f3-bc17-a03b7e60aebd";
+
+var output_area = this;
+
+require(["nbextensions/jupyter-vega/index"], function(vega) {
+  var target = document.createElement("div");
+  target.id = id;
+  target.className = "vega-embed";
+
+  var style = document.createElement("style");
+  style.textContent = [
+    ".vega-embed .error p {",
+    "  color: firebrick;",
+    "  font-size: 14px;",
+    "}",
+  ].join("\\n");
+
+  // element is a jQuery wrapped DOM element inside the output area
+  // see http://ipython.readthedocs.io/en/stable/api/generated/\
+  // IPython.display.html#IPython.display.Javascript.__init__
+  element[0].appendChild(target);
+  element[0].appendChild(style);
+
+  vega.render("#" + id, spec, type, opt, output_area);
+}, function (err) {
+  if (err.requireType !== "scripterror") {
+    throw(err);
+  }
+});
+
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre></pre>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We see that the majority of our CSOs have had their tablets for roughly {{int(tab_usage.tab_usage.mode()[0])}} months ({{np.round(tab_usage.tab_usage.mode()[0]/12, decimals=1)}} years). This is in keeping with the beginning of the Tusome program, and is as expected. CSOs who have had their tablets for longer are likely veterans of the PRIMR program (Tusome's predecessor); those who have had tablets for fewer months may have assumed their roles more recently. (CSO turnover due to retirement, promotion, maternity leave, etc. is an issue which Tusome is constantly needing to manage.)</p>
+<p>We see that the majority of our CSOs have had their tablets for roughly 41 months (3.5 years). This is in keeping with the beginning of the Tusome program, and is as expected. CSOs who have had their tablets for longer are likely veterans of the PRIMR program (Tusome's predecessor); those who have had tablets for fewer months may have assumed their roles more recently. (CSO turnover due to retirement, promotion, maternity leave, etc. is an issue which Tusome is constantly needing to manage.)</p>
 
 </div>
 </div>
@@ -13859,11 +15010,10 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the df of app usage</span>
-<span class="n">app_users</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tutor&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_tt_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app_users</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tutor&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_tt_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
          <span class="s2">&quot;papaya&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_papaya_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
          <span class="s2">&quot;books&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_bks_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
          <span class="s2">&quot;videos&quot;</span><span class="p">:</span> <span class="n">csos</span><span class="o">.</span><span class="n">freqapps_vids_promp</span><span class="o">.</span><span class="n">sum</span><span class="p">()}</span>
@@ -13879,32 +15029,92 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">appuse_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">app_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Proportion of CSOs reporting tool usage&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">app_usage</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Proportion of CSOs reporting tool usage&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;app:O&quot;</span><span class="p">,</span>
           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Application&quot;</span><span class="p">,</span>
           <span class="n">sort</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;pct&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;ascending&quot;</span><span class="p">),</span>
           <span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;pct:Q&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f CSOs reporting usage&quot;</span><span class="p">),</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;pct&quot;</span><span class="p">)</span>
-
-<span class="n">appuse_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../img/appuse_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+
+<div id="25f48ce5-67f5-408a-9c60-46441c3774bb"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#25f48ce5-67f5-408a-9c60-46441c3774bb');
+var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-f6b7acbba767f6c75f5ce80c9b10b3db"}, "mark": "bar", "encoding": {"tooltip": {"type": "quantitative", "field": "pct"}, "x": {"type": "quantitative", "field": "pct", "title": "% of CSOs reporting usage"}, "y": {"type": "ordinal", "field": "app", "sort": {"op": "values", "field": "pct", "order": "ascending"}, "title": "Application"}}, "title": "Proportion of CSOs reporting tool usage", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-f6b7acbba767f6c75f5ce80c9b10b3db": [{"app": "tutor", "ct": 141, "pct": 92.2}, {"app": "papaya", "ct": 141, "pct": 92.2}, {"app": "books", "ct": 130, "pct": 85.0}, {"app": "videos", "ct": 125, "pct": 81.69999999999999}]}};
+var opt = {};
+var type = "vega-lite";
+var id = "5cf17e61-5b8e-4fb5-9f44-d366864d4977";
+
+var output_area = this;
+
+require(["nbextensions/jupyter-vega/index"], function(vega) {
+  var target = document.createElement("div");
+  target.id = id;
+  target.className = "vega-embed";
+
+  var style = document.createElement("style");
+  style.textContent = [
+    ".vega-embed .error p {",
+    "  color: firebrick;",
+    "  font-size: 14px;",
+    "}",
+  ].join("\\n");
+
+  // element is a jQuery wrapped DOM element inside the output area
+  // see http://ipython.readthedocs.io/en/stable/api/generated/\
+  // IPython.display.html#IPython.display.Javascript.__init__
+  element[0].appendChild(target);
+  element[0].appendChild(style);
+
+  vega.render("#" + id, spec, type, opt, output_area);
+}, function (err) {
+  if (err.requireType !== "scripterror") {
+    throw(err);
+  }
+});
+
+</script>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../img/appuse_ch.png" alt="title"></p>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre></pre>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13925,11 +15135,10 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculating proportion of CSOs who refer to Tangerine during feedback</span>
-<span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">ref_tang_fdbk</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">ref_tang_fdbk</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13942,7 +15151,7 @@ Name: cso_fdbk_det, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -13976,11 +15185,10 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating proportion of CSOs who use Tangerine to plan their work</span>
-<span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">refer_tang_nonobs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">refer_tang_nonobs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">csos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13993,13 +15201,13 @@ Name: cso_fdbk_det, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>59.9</pre>
+<pre>59.5</pre>
 </div>
 
 </div>
@@ -14018,11 +15226,10 @@ Name: cso_fdbk_det, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating list of sampled statements re: why CSOs didn&#39;t use Tangerine for planning</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">tang_nonobs_nowhynot</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">csos</span><span class="o">.</span><span class="n">tang_nonobs_nowhynot</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">tang_nonobs_nowhynot</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -14036,22 +15243,22 @@ Name: cso_fdbk_det, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>48     I have not been issued with a tablet                                                                                   
-87     I ussually don&#39;t have enough time for that despite knowing it&#39;s the right thing to do but i will improve from next time
-60     I use my work schedule to monitor my school visits                                                                     
-93     I normally use it for the observation and writing reports                                                              
-21     Yes Tangerine has schools visited or not visted hence useful for programming and familiaration of the tool             
-148    Because i capture most of my work on paper so i don&#39;t need to refer to the Tangerine.                                  
-11     I PLAN FOR MY WORK WELL EVEN WITHOUT TANGERINE                                                                         
-29     i HAVE THE INFORMATION I NEED FOR PLANNING MY WORK                                                                     
-42     i had not realised that I can use it but it is a great idea that I can incorporate in the future                       
-115    I do not know how to use tangerine to refer for planning purposes. Am still new in using it.                           
+<pre>61     attandeance data                                                                                    
+16     I don&#39;t because use of tangerine captures GPS which should in for a school and not away from school.
+26     Tangerine is only meant for school.                                                                 
+6      I think that I only need to use it when I am at a school doing observations                         
+53     I normally use it when i am in class. I thought it is related to GPS                                
+17     I do not know other useful features that can help me plan my work                                   
+42     i had not realised that I can use it but it is a great idea that I can incorporate in the future    
+130    I only use it for CLO only.                                                                         
+118    am new in the program                                                                               
+29     i HAVE THE INFORMATION I NEED FOR PLANNING MY WORK                                                  
 Name: tang_nonobs_nowhynot, dtype: object</pre>
 </div>
 
@@ -14089,11 +15296,10 @@ Name: tang_nonobs_nowhynot, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating the dataset of Tangerine checking behavior</span>
-<span class="n">tchk_freq</span> <span class="o">=</span> <span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ct&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tchk_freq</span> <span class="o">=</span> <span class="n">csos</span><span class="p">[</span><span class="n">csos</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">freq_refer_tang_plan</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ct&quot;</span><span class="p">)</span>
 <span class="n">tchk_freq</span> <span class="o">=</span> <span class="n">tchk_freq</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">tchk_freq</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tchk_freq</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
     <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Daily&quot;</span><span class="p">,</span> 
@@ -14118,30 +15324,89 @@ Name: tang_nonobs_nowhynot, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generating graph of Tangerine app checking behavior</span>
-<span class="n">tangchk_ch</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tchk_freq</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Tangerine app checking behavior&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">tchk_freq</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Tangerine app checking behavior&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;ct:Q&quot;</span><span class="p">),</span>
     <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;frequency:O&quot;</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s2">&quot;sort_order:Q&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;ascending&quot;</span><span class="p">)),</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
-
-<span class="n">tangchk_ch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;../img/tangchk_ch.png&quot;</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> 
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+
+<div id="d8e5884d-68bb-403f-8324-30ea634f3e13"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#d8e5884d-68bb-403f-8324-30ea634f3e13');
+var spec = {"config": {"view": {"width": 400, "height": 300}}, "data": {"name": "data-e0c8178a2859fbedfd43b9603c42779d"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "frequency"}, "x": {"type": "quantitative", "field": "ct"}, "y": {"type": "ordinal", "field": "frequency", "sort": {"op": "values", "field": "sort_order:Q", "order": "ascending"}}}, "title": "Tangerine app checking behavior", "$schema": "https://vega.github.io/schema/vega-lite/v2.6.0.json", "datasets": {"data-e0c8178a2859fbedfd43b9603c42779d": [{"frequency": "Daily", "ct": 23, "sort_order": 0}, {"frequency": "Weekly", "ct": 46, "sort_order": 1}, {"frequency": "Monthly", "ct": 19, "sort_order": 2}, {"frequency": "Termly", "ct": 4, "sort_order": 3}, {"frequency": 88.0, "ct": 1, "sort_order": 4}]}};
+var opt = {};
+var type = "vega-lite";
+var id = "9bf316ff-3957-4c32-abf8-540651999395";
+
+var output_area = this;
+
+require(["nbextensions/jupyter-vega/index"], function(vega) {
+  var target = document.createElement("div");
+  target.id = id;
+  target.className = "vega-embed";
+
+  var style = document.createElement("style");
+  style.textContent = [
+    ".vega-embed .error p {",
+    "  color: firebrick;",
+    "  font-size: 14px;",
+    "}",
+  ].join("\\n");
+
+  // element is a jQuery wrapped DOM element inside the output area
+  // see http://ipython.readthedocs.io/en/stable/api/generated/\
+  // IPython.display.html#IPython.display.Javascript.__init__
+  element[0].appendChild(target);
+  element[0].appendChild(style);
+
+  vega.render("#" + id, spec, type, opt, output_area);
+}, function (err) {
+  if (err.requireType !== "scripterror") {
+    throw(err);
+  }
+});
+
+</script>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../img/tangchk_ch.png" alt="title"></p>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre></pre>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14151,32 +15416,6 @@ Name: tang_nonobs_nowhynot, dtype: object</pre>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
