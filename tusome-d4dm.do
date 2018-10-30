@@ -5,7 +5,7 @@ local types = "Teacher_Data CSO_Data Director_Data"
 foreach T of local types {
     display "`T'"
 
-    import excel "C:\Dropbox\Kenya Tusome\other\Google.org Grant Research\data\Consolidated Data 2018-10-26.xlsm", sh("`T'") firstrow clear
+    import excel "C:\Dropbox\Kenya Tusome\other\Google.org Grant Research\data\Consolidated Data 2018-10-29.xlsm", sh("`T'") firstrow clear
     local t = strlower("`T'")
     display "`t'"
     gen instrument = .

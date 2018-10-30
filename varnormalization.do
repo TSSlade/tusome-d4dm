@@ -84,6 +84,7 @@ if instrument[1] == 2 {
     destring freq_refer_tang_plan, replace
 
     destring db_chk_prevterm_freq, replace
+    recode db_chk_prevterm_freq (99 = .)
     local narratives "tang_fdbk_notuse_det tang_nonobs_decision tang_nonobs_nowhynot cdir_comms_topic cdir_comms_inf_ex prof_relx_chg_det db_part_inf_dec tang_new_tab tang_new_db cdir_conseq_det"
     foreach item of loc narratives {
         replace `item' = "" if inlist(upper(`item'), "N/A")

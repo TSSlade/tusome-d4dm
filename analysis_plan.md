@@ -77,10 +77,10 @@ freqapps_bks_promp
 freqapps_vids_promp
 ```
 
-3. A report showing the _proportion_ of respondents who refer to Tangerine for fedback (`ref_tang_fdbk`)
+3. A report showing the _proportion_ of respondents who refer to Tangerine for feedback (`ref_tang_fdbk`)
 4. A report showing the _proportion_ of respondents who use Tangerine to plan their work (`ref_tang_nonobs`)
 5. A stacked bar chart of users who use Tangerine to plan their work, by frequency of reference to the application (`freq_refer_tang_plan`)
-6. A histogram of the number of times the CSOs looked at the Dashboard last term (`db_check_prevterm_freq`), faceted by whether they use Tangerine to plan (`ref_tang_nonobs`) and whether the County Director communicates about the Dashboard results (`cdir_comm_reres`)
+6. A histogram of the number of times the CSOs looked at the Dashboard last term (`db_chk_prevterm_freq`), faceted by whether they use Tangerine to plan (`ref_tang_nonobs`) and whether the County Director communicates about the Dashboard results (`cdir_comm_reres`)
 7. A report of the proportion of CSOs whose County Director communicates about the Dashboard results (`cdir_comm_reres`)
 8. A stacked bar chart of respondents saying their relationship has {improved|remained the same|deteriorated} for each coworker type
 
@@ -108,3 +108,51 @@ relx_nochg_moecd
 9. A report of the proportion of CSOs whose County Director has announced serious consequences (`cdir_conseq_yn`)
 
 ## Directors
+
+1. Tabulate `designation`
+2. Convert `intro_db_yr`, `intro_db_month` into months as we did with CSOs
+3. Generate a histogram from the duration of time they've known about the Dashboard; facet by `designation`
+4. Print a sample of `src_pre_db_decaid`
+5. Report % of respondents who receive the dashboard link (`get_lnk_yn`), and summarize the frequency with which it is received (`get_link_freq`) as well as the modality (`get_link_modality`)
+6. Consider faceting the above by `designation`
+7. Generate a stacked bar chart from the dashboard link-checking frequencies:
+
+```
+db_lnk_chk_sday
+db_lnk_chk_sweek
+db_lnk_chk_smonth
+db_lnk_chk_other
+```
+Sample the responses to `db_lnk_chk_dont_why`.
+
+8. Generating a stacked bar chart of the prompted dashboard receipt device frequencies:
+
+```
+db_prmp_dev_phone
+db_prmp_dev_laptop
+db_prmp_dev_desktop
+db_prmp_dev_colleague
+db_prmp_dev_other
+```
+Sample the responses to `db_prmp_dev_other_det`. Consider faceting all of the above by `designation`.
+
+9. Tabulate the frequency of `db_dev_access_na` for those who do not access the dashboard at all.
+10. Report the frequency of `db_lnk_frm_other_yn` by designation, sample the `db_lnk_frm_other_det`.
+11. Tabulate `no_lnk_wnt_yn` and with it the `no_lnk_wnt_freq`.
+12. Generate a faceted stacked bar chart of the delivery mechanism responses:
+
+```
+del_mech_prp_sms
+del_mech_prp_wa
+del_mech_prp_email
+del_mech_prp_app
+del_mech_prp_other
+```
+Sample the responses to `del_mech_prp_det` and `del_mech_unprompted`.
+
+13. Tabulate the responses to `db_sect_consulted`.
+14. Tabulate the responses to `db_chk_freq`.
+15. Sample responses to `mgmt_dec_from_db`.
+16. Tabulate the responses to `db_info_wnt_yn` and sample the responses to `db_info_wnt_det`.
+17. Tabulate the responses to `diff_mgmt_nodata_yn` and sample the responses to `diff_mgmt_nodata_det`.
+18. Sample the responses to `db_rev_feat_det`.
