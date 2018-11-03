@@ -114,7 +114,19 @@ if instrument[1] == 3 {
     replace designation = ".m" if designation == "pls make selection"
     destring designation, replace
 
-    replace desig_other_det = "N/A" if inlist(desig_other_det, "n/a", "")
+    replace desig_other_det = "N/A" if inlist(desig_other_det, "n/a", "", " N/A", "N/A ")
+    replace designation = 21 if inlist(desig_other_det, "MOE Sub County Director", "MOE SubCounty Dir")
+    replace designation = 22 if inlist(desig_other_det, "TSC Sub County Director", "TSC SCD")
+    replace designation = 23 if inlist(desig_other_det, "SCQASO")
+    * replace designation = 31 if inlist(desig_other_det, "", "")
+    * replace designation = 32 if inlist(desig_other_det, "", "")
+    replace designation = 33 if inlist(desig_other_det, "CQASO")
+    replace designation = 34 if inlist(desig_other_det, "SCHRO", "SCHRO- TSC", "sub county Human resource officer")
+    replace designation = 35 if inlist(desig_other_det, "RCE")
+    replace designation = 36 if inlist(desig_other_det, "CPC", "PRIEDE CPC")
+    replace designation = 37 if inlist(desig_other_det, "DCD", "DCD TSC", "Deputy County director -TSC")
+    replace designation = 38 if inlist(desig_other_det, "CEO")
+    replace designation = 39 if inlist(desig_other_det, "ADQAS" , "Assistant Director Quality Assurance and Standards (ADQAS)", "Assitant Director- Quality Assurance")
 
     replace intro_db_yr = "" if intro_db_yr == "pls make selection"
     replace intro_db_month = "" if intro_db_month == "pls make selection"
@@ -122,11 +134,17 @@ if instrument[1] == 3 {
 
     local frequencies "get_link_freq no_lnk_wnt_freq db_chk_freq"
     foreach item of loc frequencies {
+        replace `item' = trim(`item')
         replace `item' = "1" if inlist(upper(`item'), "DAILY")
         replace `item' = "2" if inlist(upper(`item'), "WEEKLY")
-        replace `item' = "3" if inlist(upper(`item'), "MONTHLY")
-        replace `item' = "4" if inlist(upper(`item'), "TERMLY")
-        replace `item' = ".n" if inlist(upper(`item'), "N/A", "NA")
+        replace `item' = "3" if inlist(upper(`item'), "MONTHLY", "I CHECK ON MONTHLY BASIS", "I RECEVIE LINK EVERY MONTH", "MONTLY", "I RECEIVE MONTHLY FROM TUSOME THROUGH A TUSOME TABLET.", "I  RECEIVE THE TUSOME LINK MONTHLY VIA WHATS UP FORUM FROM THE CD-TSC MANDERA COUNTY")
+        replace `item' = "3" if inlist(upper(`item'), "YES ,I DO RECEIVE ALTHOUGH IT GOES TO THE EMAIL OF THE FORMER DIRECTOR TSC MANDERA COUNTY BUT HE FORWARDS IT TO ME EVERY MONTH")
+        replace `item' = "4" if inlist(upper(`item'), "TERMLY", "I RECEIVE IT TERMLY", "ONCE A TERM", "THIS WAS ONCE PER TERM", "I RECEIVE ONCE A TERM", "AFTER THREE MONTHS /TERMLY", "TWICE IN A TERM")
+        replace `item' = "4" if inlist(upper(`item'), "ONCE PER TERM", "QUARTERLY", "IT IS SENT TERMLY", "I HAVE A LINK THAT WAS INSTALLED IN MY TABLET AND THEREFORE I AM ABLE TO SEE THE RESULTS REGULARLY")
+        replace `item' = "5" if inlist(upper(`item'), "YEARLY", "ONCE A YEAR", "AFTER SIX MONTHS", "TWICE A YEAR")
+        replace `item' = "6" if inlist(upper(`item'), "I DON'T RECEIVE IT QUITE OFTEN", "I HAVE RECEIVED ONCE OR TWICE SINCE INCEPTION OF TUSOME", "I CAN'T TELL.I HAVE NOT TAKEN TIME TO CHECK THE FREQUENCY.", "JUST SOMETIMES. IT IS NOT FREQUENT", "I HAVE RECEIVED IT ONCE", "NOT RECEIVING ANYMORE BUT I USED TO RECEIVE LAST YEARS", "IT WAS SENT IN MARCH 2018")
+        replace `item' = "6" if inlist(upper(`item'), "ONCE", "AM NOT SURE", "NOT VERY REGULAR", "NOT VERY REGULAR.", "I RECEIVED ONCE THEN IT GOT LOST FROM MY PHONE", "I RECEIVED IT ONLY ONCE LAST WEEK", "THERE IS NO TIMELINE FOR THIS", "I RECALL THE ONCES THAT WERE ORGAINESED AT COUNTY FOR SHARING WITH STAKE HOLDERS.")
+        replace `item' = ".n" if inlist(upper(`item'), "N/A", "NA", "N")
         destring `item', replace
     }
 

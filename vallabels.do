@@ -3,12 +3,12 @@ disp as error "Entering value labels .do file"
 // Defining the labels //
 ************************/
 
-label define lbl_yn 0 "No" 1 "Yes"
+label define lbl_yn 0 "No" 1 "Yes" 2 "Don't know"
 label define lbl_pvisits 0 "CSO has never visited" 1 "1 prior visits" 2 "2 prior visits" 3 "3 prior visits" 4 "4 prior visits" 55 ">4 prior visits" .b "Missing: answer left blank" .u "Missing: unknown"
-label define lbl_designation 1 "Teacher" 2 "Head Teacher" 11 "CSO" 12 "CSO-SNE" 13 "Instructional Coach" 21 "MOE Subcounty Dir" 22 "TSC Subcounty Dir" 23 "QASO" 31 "MOE County Dir" 32 "TSC County Dir" 88 "Other"
+label define lbl_designation 1 "Teacher" 2 "Head Teacher" 11 "CSO [Z]" 12 "CSO-SNE [Z]" 13 "Instructional Coach [Z]" 21 "MOE Subcounty Dir [SC]" 22 "TSC Subcounty Dir [SC]" 23 "Quality Assurance and Standards Officer (QASO) [SC]" 31 "MOE County Dir [C]" 32 "TSC County Dir [C]" 33 "County QASO [C]" 34 "Subcounty HR Officer [SC]" 35 "Regional Coord of Edu [R]" 36 "County Project Coord [C]" 37 "Deputy County Dir [C]" 38 "Chief Edu Officer [SC]" 39 "Asst Dir QAS [N]" 88 "Other"
 label define lbl_planningchk 1 "At least daily" 2 "At least weekly" 3 "At least monthly" 4 "At least termly" 88 "Other" .n "N/A: Does not check app"
 label define lbl_instrument 1 "teacher" 2 "cso" 3 "director"
-label define lbl_lnk_rec_freq 1 "Daily" 2 "Weekly" 3 "Monthly" 4 "Termly"
+label define lbl_lnk_rec_freq 0 "Does not receive" 1 "At least daily" 2 "At least weekly" 3 "At least monthly" 4 "At least termly" 5 "At least yearly" 6 "Infrequently or once" .n "Not Applicable"
 label define lbl_tangdb_chk_freq 1 "Daily" 2 "Weekly" 3 "Monthly" 4 "Termly"
 
 /************************
